@@ -1,0 +1,13 @@
+# Preferências pessoais do Claude Code (não versionar)
+.claude/settings.local.json
+.claude/worktrees/
+
+# Segredos — NUNCA commitar
+.env
+.env.*
+*.key
+*secret*
+*token*
+
+# Sistema
+.DS_Store
