@@ -32,6 +32,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a:hover{color:var(--creme)}
 .nav-cta{background:var(--ouro);color:var(--terra);font-size:13px;font-weight:700;padding:.55rem 1.3rem;border-radius:var(--r);text-decoration:none;transition:all .2s}
 .nav-cta:hover{background:var(--ouro-l);transform:translateY(-1px)}
+.nav-actions{display:flex;align-items:center;gap:1.1rem}
+.nav-login{font-size:13px;color:rgba(245,239,224,.6);text-decoration:none;font-weight:500;white-space:nowrap;transition:color .2s}
+.nav-login:hover{color:var(--creme)}
 @media(max-width:680px){.nav-links{display:none}.nav-byline{display:none}}
 
 /* HERO */
@@ -147,7 +150,7 @@ h2.stit-l{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8r
 
 /* PLANOS */
 .planos-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-.plano{background:white;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:transform .2s,border-color .2s}
+.plano{background:white;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
 .plano:hover{transform:translateY(-3px)}
 .plano.dest{border-color:var(--ouro);border-width:2px}
 .plano.dest:hover{box-shadow:0 8px 40px rgba(184,134,11,.15)}
@@ -159,7 +162,7 @@ h2.stit-l{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8r
 .p-preco sup{font-size:1rem;vertical-align:super;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--cinza)}
 .p-preco sub{font-size:.9rem;font-weight:300;font-family:'DM Sans',sans-serif;color:var(--cinza-l)}
 .p-limite{font-size:12px;color:var(--cinza);margin-top:.4rem}
-.pb{padding:1.4rem 1.8rem}
+.pb{padding:1.4rem 1.8rem;flex:1 1 auto}
 .pf{list-style:none;display:flex;flex-direction:column;gap:.45rem}
 .pf li{font-size:13px;color:var(--text2);display:flex;gap:.6rem;align-items:flex-start;font-weight:300}
 .pf li::before{content:'✓';color:var(--campo-l);font-weight:700;flex-shrink:0;margin-top:2px}
@@ -172,9 +175,10 @@ h2.stit-l{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8r
 .planos-nota{text-align:center;font-size:12px;color:var(--cinza);margin-top:1.2rem;font-weight:300}
 
 /* TIME */
-.time-g{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:3rem}
-.membro{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:border-color .2s}
-.membro:hover{border-color:var(--campo-l)}
+.time-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+.membro{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.6rem;display:flex;flex-direction:column;align-items:flex-start;gap:1rem;transition:border-color .2s,transform .2s}
+.membro:hover{border-color:var(--campo-l);transform:translateY(-3px)}
+.membro-av+div{display:flex;flex-direction:column;flex:1;width:100%}
 .membro-av{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:1.2rem;color:white}
 .av-terra{background:var(--terra)}
 .av-campo{background:var(--campo)}
@@ -183,7 +187,8 @@ h2.stit-l{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8r
 .membro-role{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro);margin-bottom:.3rem}
 .membro-nome{font-size:15px;font-weight:700;color:var(--terra);margin-bottom:.4rem}
 .membro-bio{font-size:13px;color:var(--text2);font-weight:300;line-height:1.6}
-.membro-tag{display:inline-flex;align-items:center;gap:.3rem;margin-top:.5rem;font-size:10px;font-weight:600;color:var(--campo-l);background:var(--campo-bg);padding:2px 8px;border-radius:99px;border:1px solid rgba(61,122,84,.2)}
+.membro-tag{display:inline-flex;align-items:center;gap:.3rem;margin-top:auto;font-size:10px;font-weight:600;color:var(--campo-l);background:var(--campo-bg);padding:3px 9px;border-radius:99px;border:1px solid rgba(61,122,84,.2)}
+.membro-bio{margin-bottom:1rem}
 
 /* CASE */
 .case-box{background:var(--terra-l);border:1px solid rgba(255,255,255,.06);border-radius:var(--rl);padding:2.5rem 3rem;margin-top:3rem}
@@ -221,12 +226,14 @@ footer{background:var(--terra);padding:2.5rem 5%;display:flex;justify-content:sp
 .fi.vis{opacity:1;transform:translateY(0)}
 
 @media(max-width:900px){
-  .pilares,.mods,.sangues-lay,.ctrl-lay,.efic-g,.planos-g,.time-g,.case-stats{grid-template-columns:1fr}
+  .pilares,.mods,.sangues-lay,.ctrl-lay,.efic-g,.planos-g,.case-stats{grid-template-columns:1fr}
+  .time-g{grid-template-columns:repeat(2,1fr)}
   .sec{padding:4.5rem 5%}
   .hero{padding:7rem 5% 4rem}
   .kgrid{grid-template-columns:1fr}
 }
 @media(max-width:580px){
+  .time-g{grid-template-columns:1fr}
   .hero-nome{font-size:clamp(4rem,18vw,7rem)}
   .hero-ctas{flex-direction:column}
 }
@@ -248,7 +255,10 @@ footer{background:var(--terra);padding:2.5rem 5%;display:flex;justify-content:sp
     <a href="#time">Time</a>
     <a href="#planos">Planos</a>
   </div>
-  <a class="nav-cta" href="#planos">Começar agora</a>
+  <div class="nav-actions">
+    <a class="nav-login" href="https://app.mimba.com.br">Já sou cliente</a>
+    <a class="nav-cta" href="#planos">Começar agora</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -491,8 +501,8 @@ footer{background:var(--terra);padding:2.5rem 5%;display:flex;justify-content:sp
       <div class="membro-av av-couro">PP</div>
       <div>
         <div class="membro-role">Tech Lead · MimbaTech</div>
-        <div class="membro-nome">Pedro Portella</div>
-        <div class="membro-bio">Arquiteto de soluções responsável pela execução técnica do roadmap. Lidera o desenvolvimento da plataforma Mimba — da arquitetura multi-tenant à integração com a ABCCC.</div>
+        <div class="membro-nome">Pedro Portella Possamai</div>
+        <div class="membro-bio">Engenheiro de software e arquiteto de soluções, responsável pela execução técnica do roadmap. Lidera o desenvolvimento da plataforma Mimba — da arquitetura multi-tenant à integração com a ABCCC.</div>
         <span class="membro-tag">⚙️ Arquitetura & Desenvolvimento</span>
       </div>
     </div>
