@@ -60,15 +60,19 @@ async function carregarPlanos(){
     const planos=await r.json();
     if(!Array.isArray(planos)||!planos.length){box.textContent='Não foi possível carregar os planos.';return;}
     box.innerHTML='';
-    planos.forEach((p,i)=>{
+    const want=(new URLSearchParams(location.search).get('plano')||'').trim().toLowerCase();
+    planos.forEach((p)=>{
       const lim=p.max_animais<0?'ilimitado':('até '+p.max_animais+' animais');
       const el=document.createElement('label');
-      el.className='plano'+(i===0?' sel':'');
+      el.className='plano';
       el.innerHTML='<span><div class="plano-nome">'+p.nome+'</div><div class="plano-desc">'+lim+'</div></span><span class="plano-preco">R$ '+Number(p.preco_mensal).toFixed(0)+'/mês</span>';
       el.onclick=function(){document.querySelectorAll('.plano').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');planoSel=p.id;};
       box.appendChild(el);
-      if(i===0)planoSel=p.id;
     });
+    let idx=want?planos.findIndex(p=>String(p.nome).trim().toLowerCase()===want):0;
+    if(idx<0)idx=0;
+    box.children[idx].classList.add('sel');
+    planoSel=planos[idx].id;
   }catch(e){box.textContent='Não foi possível carregar os planos.';}
 }
 carregarPlanos();
