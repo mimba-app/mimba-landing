@@ -41,16 +41,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero{min-height:100svh;background:var(--terra);display:flex;flex-direction:column;justify-content:center;padding:9rem 5% 6rem;position:relative;overflow:hidden}
 .hero-tex{position:absolute;inset:0;background-image:linear-gradient(rgba(184,134,11,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(184,134,11,.035) 1px,transparent 1px);background-size:72px 72px}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 80% 25%,rgba(184,134,11,.12) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 5% 80%,rgba(45,90,61,.15) 0%,transparent 60%)}
-.hero-inner{position:relative;z-index:2;max-width:900px}
+.hero-inner{position:relative;z-index:2;max-width:1240px;width:100%;margin:0 auto}
+.hero-top{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;margin-bottom:4rem}
+.hero-copy{min-width:0}
+.hero-media{margin:0;border-radius:var(--rl);overflow:hidden;border:1px solid rgba(184,134,11,.22);box-shadow:0 24px 70px rgba(0,0,0,.45)}
+.hero-media img{display:block;width:100%;height:100%;max-height:520px;object-fit:cover;object-position:50% 30%}
 .hero-etim{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:2rem;padding:.45rem 1rem .45rem .6rem;background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.18);border-radius:99px}
 .etim-pill{background:var(--ouro);color:var(--terra);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:99px}
 .etim-txt{font-size:12px;color:rgba(232,197,71,.65);font-weight:300;letter-spacing:.02em}
 .etim-txt strong{color:rgba(232,197,71,.9);font-weight:600}
 .hero-nome{font-family:'Playfair Display',serif;font-size:clamp(5rem,14vw,11rem);font-weight:900;line-height:.95;color:var(--creme);letter-spacing:-.04em;margin-bottom:1.5rem;position:relative}
-.hero-nome em{color:var(--ouro-xl);font-style:normal;display:block}
+.hero-nome em{color:var(--ouro-xl);font-style:normal}
 .hero-titulo{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:400;font-style:italic;color:rgba(245,239,224,.7);line-height:1.35;margin-bottom:1.5rem;max-width:560px}
 .hero-sub{font-size:1rem;color:rgba(245,239,224,.45);font-weight:300;max-width:540px;line-height:1.75;margin-bottom:3rem}
-.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:4rem}
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:0}
 .btn-ouro{display:inline-flex;align-items:center;gap:.5rem;background:var(--ouro);color:var(--terra);font-size:15px;font-weight:700;padding:.9rem 2rem;border-radius:var(--r);text-decoration:none;box-shadow:0 4px 20px rgba(184,134,11,.3);transition:all .2s}
 .btn-ouro:hover{background:var(--ouro-l);transform:translateY(-2px);box-shadow:0 6px 28px rgba(184,134,11,.4)}
 .btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:rgba(245,239,224,.65);border:1px solid rgba(255,255,255,.14);font-size:15px;font-weight:400;padding:.9rem 2rem;border-radius:var(--r);text-decoration:none;transition:all .2s}
@@ -202,7 +206,7 @@ h2.stit-l{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8r
 .cs-l{font-size:10px;color:rgba(245,239,224,.3);text-transform:uppercase;letter-spacing:.1em}
 
 /* CTA */
-.cta-s{background:var(--campo);padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta-s{background:linear-gradient(rgba(28,16,8,.70),rgba(28,16,8,.82)),var(--campo) url('assets/cta-campo.jpg') center/cover no-repeat;padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
 .cta-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 50% 0%,rgba(184,134,11,.12) 0%,transparent 65%)}
 .cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
 .cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--creme);line-height:1.1;margin-bottom:1rem}
@@ -228,6 +232,8 @@ footer{background:var(--terra);padding:2.5rem 5%;display:flex;justify-content:sp
 @media(max-width:900px){
   .pilares,.mods,.sangues-lay,.ctrl-lay,.efic-g,.planos-g,.case-stats{grid-template-columns:1fr}
   .time-g{grid-template-columns:repeat(2,1fr)}
+  .hero-top{grid-template-columns:1fr;gap:2.5rem}
+  .hero-media img{max-height:360px}
   .sec{padding:4.5rem 5%}
   .hero{padding:7rem 5% 4rem}
   .kgrid{grid-template-columns:1fr}
@@ -265,18 +271,25 @@ footer{background:var(--terra);padding:2.5rem 5%;display:flex;justify-content:sp
 <section class="hero">
   <div class="hero-tex"></div>
   <div class="hero-inner">
-    <div class="hero-etim">
-      <span class="etim-pill">Guarani</span>
-      <span class="etim-txt"><strong>Mimba</strong> · mymba · o animal sob cuidado, o ser que se cria</span>
-    </div>
-    <div class="hero-nome">
-      Mimba<em>.</em>
-    </div>
-    <p class="hero-titulo">A inteligência da sua cabanha.</p>
-    <p class="hero-sub">O histórico de cada animal, a genealogia da sua manada até a 5ª geração e o controle completo do dia a dia — em um sistema feito por quem cria crioulo, para quem cria crioulo.</p>
-    <div class="hero-ctas">
-      <a class="btn-ouro" href="#planos">Contratar agora →</a>
-      <a class="btn-ghost" href="#modulos">Ver funcionalidades</a>
+    <div class="hero-top">
+      <div class="hero-copy">
+        <div class="hero-etim">
+          <span class="etim-pill">Guarani</span>
+          <span class="etim-txt"><strong>Mimba</strong> · mymba · o animal sob cuidado, o ser que se cria</span>
+        </div>
+        <div class="hero-nome">
+          Mimba<em>.</em>
+        </div>
+        <p class="hero-titulo">A inteligência da sua cabanha.</p>
+        <p class="hero-sub">O histórico de cada animal, a genealogia da sua manada até a 5ª geração e o controle completo do dia a dia — em um sistema feito por quem cria crioulo, para quem cria crioulo.</p>
+        <div class="hero-ctas">
+          <a class="btn-ouro" href="#planos">Contratar agora →</a>
+          <a class="btn-ghost" href="#modulos">Ver funcionalidades</a>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="assets/hero-crioulo.jpg" width="1600" height="1067" alt="Criadores de cavalo crioulo em traje gaúcho tradicional numa cabanha, com um cavalo ao fundo">
+      </figure>
     </div>
     <div class="hero-stats">
       <div><div class="hstat-n"><em>ABCCC</em></div><div class="hstat-l">Integrado nativamente</div></div>
