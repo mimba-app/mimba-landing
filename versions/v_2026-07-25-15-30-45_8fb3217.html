@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mimba — A inteligência da sua cabanha</title>
+<meta name="description" content="Mimba é a plataforma de gestão para cabanhas de Cavalo Crioulo ABCCC. Genealogia até a 5ª geração, controle sanitário automático e eficiência no dia a dia. Uma solução MimbaTech.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --terra:#1C1008; --terra-l:#2E1A0C; --couro:#4A2E18;
+  --ouro:#B8860B; --ouro-l:#D4A017; --ouro-xl:#E8C547; --ouro-bg:#FBF5DC;
+  --campo:#2D5A3D; --campo-l:#3D7A54; --campo-xl:#52A870; --campo-bg:#EBF5EF;
+  --creme:#F5EFE0; --creme-d:#EAE0CC;
+  --cinza:#8A7F72; --cinza-l:#C0B4A8;
+  --bg:#FAFAF7; --border:#DDD5C8; --text:#1C1008; --text2:#5C4F42;
+  --r:10px; --rl:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.85rem 5%;background:rgba(28,16,8,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.nav-wordmark{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--creme);letter-spacing:-.01em}
+.nav-wordmark span{color:var(--ouro-xl)}
+.nav-byline{font-size:9px;color:rgba(245,239,224,.3);letter-spacing:.1em;text-transform:uppercase;margin-top:-2px}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:13px;color:rgba(245,239,224,.45);text-decoration:none;transition:color .2s;font-weight:400}
+.nav-links a:hover{color:var(--creme)}
+.nav-cta{background:var(--ouro);color:var(--terra);font-size:13px;font-weight:700;padding:.55rem 1.3rem;border-radius:var(--r);text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--ouro-l);transform:translateY(-1px)}
+.nav-actions{display:flex;align-items:center;gap:1.1rem}
+.nav-login{font-size:13px;color:rgba(245,239,224,.6);text-decoration:none;font-weight:500;white-space:nowrap;transition:color .2s}
+.nav-login:hover{color:var(--creme)}
+@media(max-width:680px){.nav-links{display:none}.nav-byline{display:none}}
+
+/* HERO */
+.hero{min-height:100svh;background:var(--terra);display:flex;flex-direction:column;justify-content:center;padding:9rem 5% 6rem;position:relative;overflow:hidden}
+.hero-tex{position:absolute;inset:0;background-image:linear-gradient(rgba(184,134,11,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(184,134,11,.035) 1px,transparent 1px);background-size:72px 72px}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 80% 25%,rgba(184,134,11,.12) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 5% 80%,rgba(45,90,61,.15) 0%,transparent 60%)}
+.hero-inner{position:relative;z-index:2;max-width:900px}
+.hero-etim{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:2rem;padding:.45rem 1rem .45rem .6rem;background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.18);border-radius:99px}
+.etim-pill{background:var(--ouro);color:var(--terra);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:99px}
+.etim-txt{font-size:12px;color:rgba(232,197,71,.65);font-weight:300;letter-spacing:.02em}
+.etim-txt strong{color:rgba(232,197,71,.9);font-weight:600}
+.hero-nome{font-family:'Playfair Display',serif;font-size:clamp(5rem,14vw,11rem);font-weight:900;line-height:.95;color:var(--creme);letter-spacing:-.04em;margin-bottom:1.5rem;position:relative}
+.hero-nome em{color:var(--ouro-xl);font-style:normal;display:block}
+.hero-titulo{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:400;font-style:italic;color:rgba(245,239,224,.7);line-height:1.35;margin-bottom:1.5rem;max-width:560px}
+.hero-sub{font-size:1rem;color:rgba(245,239,224,.45);font-weight:300;max-width:540px;line-height:1.75;margin-bottom:3rem}
+.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:4rem}
+.btn-ouro{display:inline-flex;align-items:center;gap:.5rem;background:var(--ouro);color:var(--terra);font-size:15px;font-weight:700;padding:.9rem 2rem;border-radius:var(--r);text-decoration:none;box-shadow:0 4px 20px rgba(184,134,11,.3);transition:all .2s}
+.btn-ouro:hover{background:var(--ouro-l);transform:translateY(-2px);box-shadow:0 6px 28px rgba(184,134,11,.4)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:rgba(245,239,224,.65);border:1px solid rgba(255,255,255,.14);font-size:15px;font-weight:400;padding:.9rem 2rem;border-radius:var(--r);text-decoration:none;transition:all .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);color:var(--creme)}
+.hero-stats{display:flex;gap:3rem;flex-wrap:wrap;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.07)}
+.hstat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--creme);line-height:1;margin-bottom:.25rem}
+.hstat-n em{color:var(--ouro-xl);font-style:normal}
+.hstat-l{font-size:10px;color:rgba(245,239,224,.35);text-transform:uppercase;letter-spacing:.12em}
+
+/* SEÇÕES */
+.sec{padding:7rem 5%}
+.sec-in{max-width:1200px;margin:0 auto}
+.sec-alt{background:var(--terra-l)}
+.sec-creme{background:var(--creme)}
+.sep{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+.sep-dark{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.eyebrow::before{content:'';display:block;width:14px;height:2px;background:var(--ouro);border-radius:2px}
+.eyebrow.campo-e{color:var(--campo-l)}
+.eyebrow.campo-e::before{background:var(--campo-l)}
+.eyebrow.creme-e{color:var(--creme-d)}
+.eyebrow.creme-e::before{background:var(--cinza-l)}
+h2.stit{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.12;color:var(--text);margin-bottom:.8rem}
+h2.stit-l{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.12;color:var(--creme);margin-bottom:.8rem}
+.ssub{font-size:1rem;color:var(--cinza);max-width:560px;font-weight:300;line-height:1.75;margin-bottom:3rem}
+.ssub-l{font-size:1rem;color:rgba(245,239,224,.55);max-width:560px;font-weight:300;line-height:1.75;margin-bottom:3rem}
+
+/* PILARES */
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.pilar{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:2rem;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.pilar:hover{transform:translateY(-3px);border-color:var(--campo-l)}
+.pilar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.p1::before{background:linear-gradient(90deg,var(--campo),var(--campo-xl))}
+.p2::before{background:linear-gradient(90deg,var(--ouro),var(--ouro-l))}
+.p3::before{background:linear-gradient(90deg,var(--couro),var(--cinza))}
+.pilar-icon{font-size:2rem;margin-bottom:1rem}
+.pilar-titulo{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--terra);margin-bottom:.6rem}
+.pilar-txt{font-size:13.5px;color:var(--text2);font-weight:300;line-height:1.7}
+.pilar-list{list-style:none;margin-top:.9rem;display:flex;flex-direction:column;gap:.35rem}
+.pilar-list li{font-size:12.5px;color:var(--cinza);display:flex;gap:.5rem;line-height:1.4}
+.pilar-list li::before{content:'↗';color:var(--campo-l);flex-shrink:0;font-size:11px;margin-top:1px}
+
+/* MÓDULOS */
+.mods{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.mod{background:white;border:1px solid var(--border);border-radius:var(--r);padding:1.4rem 1.6rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .2s}
+.mod:hover{border-color:var(--campo-l)}
+.mod-ic{font-size:1.5rem;width:36px;flex-shrink:0;text-align:center;margin-top:2px}
+.mod-n{font-size:14px;font-weight:600;color:var(--terra);margin-bottom:.25rem}
+.mod-d{font-size:12.5px;color:var(--text2);font-weight:300;line-height:1.55}
+.mod-tag{display:inline-block;margin-top:.4rem;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 8px;border-radius:99px;border:1px solid}
+.mt-g{background:var(--campo-bg);color:var(--campo-l);border-color:rgba(61,122,84,.2)}
+.mt-a{background:var(--ouro-bg);color:var(--ouro);border-color:rgba(184,134,11,.2)}
+.mt-e{background:#FBF5DC;color:#7A5500;border-color:rgba(184,134,11,.3)}
+
+/* SANGUES */
+.sangues-lay{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.rbox{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:1.2rem 1.4rem;margin-bottom:.8rem}
+.rtit{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(245,239,224,.3);margin-bottom:.8rem}
+.ri{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.rpos{font-family:'DM Mono',monospace;font-size:11px;color:rgba(245,239,224,.3);width:18px;flex-shrink:0}
+.rnome{font-size:12px;color:rgba(245,239,224,.6);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rbw{width:80px;height:4px;background:rgba(255,255,255,.06);border-radius:99px;flex-shrink:0}
+.rb{height:4px;border-radius:99px;background:var(--ouro)}
+.rcnt{font-family:'DM Mono',monospace;font-size:10px;color:rgba(245,239,224,.3);width:24px;text-align:right;flex-shrink:0}
+.claim{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:rgba(245,239,224,.65);line-height:1.55;margin-bottom:1.5rem;padding-left:1.2rem;border-left:2px solid var(--ouro)}
+.sfeat{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.sfeat li{font-size:13.5px;color:rgba(245,239,224,.6);display:flex;gap:.7rem;align-items:flex-start;font-weight:300}
+.sfeat li::before{content:'✓';color:var(--ouro-xl);font-weight:700;flex-shrink:0;margin-top:2px}
+
+/* CONTROLE */
+.ctrl-lay{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.kboard{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem}
+.ktit{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cinza);margin-bottom:1rem}
+.kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.klbl{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:.3rem;border-radius:6px;margin-bottom:.4rem}
+.k-ok{background:rgba(61,122,84,.1);color:var(--campo-l)}
+.k-att{background:rgba(184,134,11,.1);color:var(--ouro)}
+.k-venc{background:rgba(212,60,60,.1);color:#C04040}
+.kcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:.55rem .7rem;margin-bottom:.35rem}
+.kc-n{font-size:11px;font-weight:600;color:var(--text);margin-bottom:.15rem}
+.kc-i{font-size:10px;color:var(--cinza);font-weight:300}
+.kalert{display:flex;align-items:center;gap:.6rem;background:var(--ouro-bg);border:1px solid rgba(184,134,11,.2);border-radius:var(--r);padding:.6rem .8rem;margin-top:.8rem}
+.kalert span{font-size:11px;color:var(--ouro);font-weight:400}
+.pontos{display:flex;flex-direction:column;gap:.9rem}
+.ponto{display:flex;gap:.9rem;align-items:flex-start}
+.pton-ic{width:38px;height:38px;border-radius:var(--r);background:var(--campo-bg);border:1px solid rgba(61,122,84,.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.pton-t{font-size:14px;font-weight:600;color:var(--terra);margin-bottom:.2rem}
+.pton-d{font-size:12.5px;color:var(--text2);font-weight:300;line-height:1.55}
+
+/* EFICIÊNCIA */
+.efic-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.efic{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.8rem;position:relative;overflow:hidden}
+.efic::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--campo),var(--campo-xl));opacity:.5}
+.efic-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--campo-l);line-height:1;margin-bottom:.4rem}
+.efic-t{font-size:14px;font-weight:600;color:var(--terra);margin-bottom:.4rem}
+.efic-d{font-size:12.5px;color:var(--text2);font-weight:300;line-height:1.6}
+
+/* PLANOS */
+.planos-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.plano{background:white;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+.plano:hover{transform:translateY(-3px)}
+.plano.dest{border-color:var(--ouro);border-width:2px}
+.plano.dest:hover{box-shadow:0 8px 40px rgba(184,134,11,.15)}
+.ph{padding:1.8rem 1.8rem 1.4rem;border-bottom:1px solid var(--border)}
+.plano.dest .ph{background:var(--ouro-bg)}
+.p-badge{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--ouro);color:var(--terra);padding:2px 10px;border-radius:99px;display:inline-block;margin-bottom:.8rem}
+.p-nome{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--cinza);margin-bottom:.5rem}
+.p-preco{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--terra);line-height:1}
+.p-preco sup{font-size:1rem;vertical-align:super;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--cinza)}
+.p-preco sub{font-size:.9rem;font-weight:300;font-family:'DM Sans',sans-serif;color:var(--cinza-l)}
+.p-limite{font-size:12px;color:var(--cinza);margin-top:.4rem}
+.pb{padding:1.4rem 1.8rem;flex:1 1 auto}
+.pf{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.pf li{font-size:13px;color:var(--text2);display:flex;gap:.6rem;align-items:flex-start;font-weight:300}
+.pf li::before{content:'✓';color:var(--campo-l);font-weight:700;flex-shrink:0;margin-top:2px}
+.pf li.off{color:var(--cinza-l)}
+.pf li.off::before{content:'–';color:var(--border)}
+.p-cta{display:block;text-align:center;margin:0 1.8rem 1.8rem;background:var(--campo);color:white;font-size:14px;font-weight:600;padding:.85rem;border-radius:var(--r);text-decoration:none;transition:background .2s}
+.p-cta:hover{background:var(--campo-l)}
+.plano.dest .p-cta{background:var(--ouro);color:var(--terra)}
+.plano.dest .p-cta:hover{background:var(--ouro-l)}
+.planos-nota{text-align:center;font-size:12px;color:var(--cinza);margin-top:1.2rem;font-weight:300}
+
+/* TIME */
+.time-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+.membro{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.6rem;display:flex;flex-direction:column;align-items:flex-start;gap:1rem;transition:border-color .2s,transform .2s}
+.membro:hover{border-color:var(--campo-l);transform:translateY(-3px)}
+.membro-av+div{display:flex;flex-direction:column;flex:1;width:100%}
+.membro-av{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:1.2rem;color:white}
+.av-terra{background:var(--terra)}
+.av-campo{background:var(--campo)}
+.av-couro{background:var(--couro)}
+.av-cinza{background:var(--cinza)}
+.membro-role{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro);margin-bottom:.3rem}
+.membro-nome{font-size:15px;font-weight:700;color:var(--terra);margin-bottom:.4rem}
+.membro-bio{font-size:13px;color:var(--text2);font-weight:300;line-height:1.6}
+.membro-tag{display:inline-flex;align-items:center;gap:.3rem;margin-top:auto;font-size:10px;font-weight:600;color:var(--campo-l);background:var(--campo-bg);padding:3px 9px;border-radius:99px;border:1px solid rgba(61,122,84,.2)}
+.membro-bio{margin-bottom:1rem}
+
+/* CASE */
+.case-box{background:var(--terra-l);border:1px solid rgba(255,255,255,.06);border-radius:var(--rl);padding:2.5rem 3rem;margin-top:3rem}
+.case-q{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:rgba(245,239,224,.75);line-height:1.6;margin-bottom:1.5rem;padding-left:1.5rem;border-left:2px solid var(--campo-l)}
+.case-meta{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.case-av{width:44px;height:44px;border-radius:50%;background:var(--campo);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:white}
+.case-nm{font-size:14px;font-weight:600;color:var(--creme)}
+.case-dt{font-size:12px;color:rgba(245,239,224,.35)}
+.case-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07)}
+.cs-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--ouro-xl);line-height:1;margin-bottom:.25rem}
+.cs-l{font-size:10px;color:rgba(245,239,224,.3);text-transform:uppercase;letter-spacing:.1em}
+
+/* CTA */
+.cta-s{background:var(--campo);padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 50% 0%,rgba(184,134,11,.12) 0%,transparent 65%)}
+.cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
+.cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--creme);line-height:1.1;margin-bottom:1rem}
+.cta-inner h2 em{color:var(--ouro-xl);font-style:italic}
+.cta-inner p{font-size:1rem;color:rgba(245,239,224,.55);font-weight:300;margin-bottom:2.5rem;line-height:1.7}
+.cta-nota{font-size:12px;color:rgba(245,239,224,.3);margin-top:1.2rem;font-weight:300}
+
+/* FOOTER */
+footer{background:var(--terra);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.05)}
+.footer-marca{display:flex;flex-direction:column}
+.footer-mimba{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:rgba(245,239,224,.6);letter-spacing:-.01em}
+.footer-mimba span{color:var(--ouro-xl)}
+.footer-by{font-size:10px;color:rgba(245,239,224,.2);margin-top:1px}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:rgba(245,239,224,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:rgba(245,239,224,.65)}
+.footer-copy{font-size:11px;color:rgba(245,239,224,.2)}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.fi.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .pilares,.mods,.sangues-lay,.ctrl-lay,.efic-g,.planos-g,.case-stats{grid-template-columns:1fr}
+  .time-g{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:4.5rem 5%}
+  .hero{padding:7rem 5% 4rem}
+  .kgrid{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+  .time-g{grid-template-columns:1fr}
+  .hero-nome{font-size:clamp(4rem,18vw,7rem)}
+  .hero-ctas{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div>
+      <div class="nav-wordmark"><span>Mimba</span></div>
+      <div class="nav-byline">by MimbaTech</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#pilares">Por que o Mimba</a>
+    <a href="#modulos">Funcionalidades</a>
+    <a href="#time">Time</a>
+    <a href="#planos">Planos</a>
+  </div>
+  <div class="nav-actions">
+    <a class="nav-login" href="https://app.mimba.com.br">Já sou cliente</a>
+    <a class="nav-cta" href="#planos">Começar agora</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tex"></div>
+  <div class="hero-inner">
+    <div class="hero-etim">
+      <span class="etim-pill">Guarani</span>
+      <span class="etim-txt"><strong>Mimba</strong> · mymba · o animal sob cuidado, o ser que se cria</span>
+    </div>
+    <div class="hero-nome">
+      Mimba<em>.</em>
+    </div>
+    <p class="hero-titulo">A inteligência da sua cabanha.</p>
+    <p class="hero-sub">O histórico de cada animal, a genealogia da sua manada até a 5ª geração e o controle completo do dia a dia — em um sistema feito por quem cria crioulo, para quem cria crioulo.</p>
+    <div class="hero-ctas">
+      <a class="btn-ouro" href="#planos">Contratar agora →</a>
+      <a class="btn-ghost" href="#modulos">Ver funcionalidades</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hstat-n"><em>ABCCC</em></div><div class="hstat-l">Integrado nativamente</div></div>
+      <div><div class="hstat-n">5ª <em>ger.</em></div><div class="hstat-l">Genealogia automática</div></div>
+      <div><div class="hstat-n">11</div><div class="hstat-l">Módulos completos</div></div>
+      <div><div class="hstat-n">&lt;2<em>min</em></div><div class="hstat-l">Sua cabanha no ar</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- PILARES -->
+<section class="sec" id="pilares">
+<div class="sec-in">
+  <div class="eyebrow">Por que o Mimba</div>
+  <h2 class="stit">Tradição não é o passado.<br>É o que você constrói para durar.</h2>
+  <p class="ssub">O criador crioulo acumula décadas de conhecimento sobre linhagem, saúde e reprodução dos animais. O Mimba existe para que esse conhecimento não fique só na cabeça do cabanheiro — e para que cada decisão seja tomada com dados reais.</p>
+  <div class="pilares">
+    <div class="pilar p1 fi">
+      <div class="pilar-icon">🧬</div>
+      <h3 class="pilar-titulo">Inteligência da manada</h3>
+      <p class="pilar-txt">O histórico da sua criação associado aos resultados da raça. Planejamento genético com base no que sua manada realmente tem — não no que você lembra que tem.</p>
+      <ul class="pilar-list">
+        <li>Genealogia automática até a 5ª geração via ABCCC</li>
+        <li>Rankings de afixos, pais e avós de toda a manada</li>
+        <li>Decisão de cruzamento com dados reais em mãos</li>
+        <li>Histórico completo de cada animal desde o nascimento</li>
+      </ul>
+    </div>
+    <div class="pilar p2 fi">
+      <div class="pilar-icon">📱</div>
+      <h3 class="pilar-titulo">Controle na palma da mão</h3>
+      <p class="pilar-txt">Informação em tempo real acessível de qualquer dispositivo. O cabanheiro registra no celular em campo. O veterinário acessa do computador. O criador acompanha de onde estiver.</p>
+      <ul class="pilar-list">
+        <li>Alertas automáticos de vacinas e exames a vencer</li>
+        <li>Dashboard com situação completa da cabanha</li>
+        <li>Verificação sanitária antes de cada evento ABCCC</li>
+        <li>Linha do tempo visual com fotos por animal</li>
+      </ul>
+    </div>
+    <div class="pilar p3 fi">
+      <div class="pilar-icon">⚡</div>
+      <h3 class="pilar-titulo">Eficiência operacional</h3>
+      <p class="pilar-txt">Menos tempo buscando informação, menos perdas por descuido, menos despesas evitáveis. Controles precisos que eliminam os erros de quem gerencia no improviso.</p>
+      <ul class="pilar-list">
+        <li>Zero animal vencido entrando em prova</li>
+        <li>Custo real por animal — nutrição, saúde e eventos</li>
+        <li>Estoque alimentado pelo consumo automaticamente</li>
+        <li>Histórico permanente na nuvem — zero dado perdido</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- MÓDULOS -->
+<section class="sec sec-creme" id="modulos">
+<div class="sec-in">
+  <div class="eyebrow campo-e">11 módulos integrados</div>
+  <h2 class="stit">Um sistema completo.<br>Tudo conectado, tudo em um lugar.</h2>
+  <p class="ssub">O que você registra na saúde aparece na linha do tempo. O consumo da nutrição deduz do estoque. Cada módulo conversa com os outros.</p>
+  <div class="mods">
+    <div class="mod fi"><div class="mod-ic">🐎</div><div><div class="mod-n">Cadastro de Animais</div><div class="mod-d">Ficha completa preenchida automaticamente pelo SBB via ABCCC. Histórico de situação, estágio, pelagem e genealogia com filtros avançados.</div><span class="mod-tag mt-a">ABCCC</span></div></div>
+    <div class="mod fi"><div class="mod-ic">💉</div><div><div class="mod-n">Saúde — Vacinas, Exames e Vermifugação</div><div class="mod-d">Kanban visual por status de vencimento. Protocolos rápidos de Influenza, Tétano e AIE. Alertas com 30 dias de antecedência. Histórico completo por animal.</div><span class="mod-tag mt-g">Alertas automáticos</span></div></div>
+    <div class="mod fi"><div class="mod-ic">🍀</div><div><div class="mod-n">Reprodução e Gestações</div><div class="mod-d">Coberturas por tipo: Natural, IA, IATF, TE e PIV. Barra de progresso da gestação com parto previsto. Alerta de leptospirose para éguas prenhes.</div><span class="mod-tag mt-g">Todos os tipos</span></div></div>
+    <div class="mod fi"><div class="mod-ic">🏆</div><div><div class="mod-n">Eventos e Provas ABCCC</div><div class="mod-d">Morfologias, freio de ouro, paleteadas e provas funcionais. Verificação sanitária automática — vacinas e exames de cada participante conferidos em um clique.</div><span class="mod-tag mt-a">Verificação automática</span></div></div>
+    <div class="mod fi"><div class="mod-ic">🧬</div><div><div class="mod-n">Análise de Sangues</div><div class="mod-d">Consulta automática da 5ª geração de cada animal na ABCCC. Rankings de afixos, pais, avós paternos e maternos. Único no mercado equino brasileiro.</div><span class="mod-tag mt-e">Exclusivo</span></div></div>
+    <div class="mod fi"><div class="mod-ic">📸</div><div><div class="mod-n">Linha do Tempo com Fotos</div><div class="mod-d">Nascimento, crias, vacinas, eventos e fotos de projetos nutricionais. O valor do animal documentado da primeira à última foto — patrimônio permanente da cabanha.</div><span class="mod-tag mt-g">Fotos e vídeos</span></div></div>
+    <div class="mod fi"><div class="mod-ic">🌿</div><div><div class="mod-n">Nutrição e Suplementação</div><div class="mod-d">Planos individuais por animal com projetos e fotos. Consumo estimado alimenta automaticamente o estoque — nada cadastrado duas vezes.</div><span class="mod-tag mt-g">Integrado ao estoque</span></div></div>
+    <div class="mod fi"><div class="mod-ic">📦</div><div><div class="mod-n">Estoque e Insumos</div><div class="mod-d">Medicamentos, suplementos e forragem com alertas de mínimo. Movimentações integradas ao consumo nutricional e veterinário.</div><span class="mod-tag mt-g">Alertas de mínimo</span></div></div>
+    <div class="mod fi"><div class="mod-ic">💰</div><div><div class="mod-n">Financeiro</div><div class="mod-d">Receitas e despesas por categoria. Custo por animal consolidando nutrição, saúde e eventos. Controle de pendências e fluxo de caixa da cabanha.</div><span class="mod-tag mt-g">Custo por animal</span></div></div>
+    <div class="mod fi"><div class="mod-ic">📐</div><div><div class="mod-n">Biometria e Medidas</div><div class="mod-d">Peso, cernelha, tórax, canela e escore corporal com histórico de evolução. Acompanhamento de confirmação por medição e idade.</div><span class="mod-tag mt-g">Evolução histórica</span></div></div>
+    <div class="mod fi"><div class="mod-ic">👥</div><div><div class="mod-n">Multi-usuário com Perfis</div><div class="mod-d">Administrador, Veterinário e Cabanheiro com permissões distintas. Cada um acessa apenas o que é da sua responsabilidade.</div><span class="mod-tag mt-g">3 perfis de acesso</span></div></div>
+  </div>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ANÁLISE DE SANGUES -->
+<section class="sec sec-alt" id="sangues" style="background:var(--terra)">
+<div class="sec-in">
+  <div class="eyebrow" style="color:var(--ouro-l)">Funcionalidade exclusiva</div>
+  <h2 class="stit-l">Análise de Sangues:<br>a manada que você construiu, revelada.</h2>
+  <div class="sangues-lay" style="margin-top:3rem">
+    <div>
+      <div class="rbox">
+        <div class="rtit">🏠 Afixos mais presentes — sua manada</div>
+        <div class="ri"><span class="rpos">1º</span><span class="rnome">SANTA EDWIGES</span><div class="rbw"><div class="rb" style="width:100%"></div></div><span class="rcnt">14x</span></div>
+        <div class="ri"><span class="rpos">2º</span><span class="rnome">JUNCO</span><div class="rbw"><div class="rb" style="width:78%"></div></div><span class="rcnt">11x</span></div>
+        <div class="ri"><span class="rpos">3º</span><span class="rnome">ITAPORORÓ</span><div class="rbw"><div class="rb" style="width:50%;background:var(--campo)"></div></div><span class="rcnt">7x</span></div>
+        <div class="ri"><span class="rpos">4º</span><span class="rnome">RECONQUISTA</span><div class="rbw"><div class="rb" style="width:43%;background:var(--couro)"></div></div><span class="rcnt">6x</span></div>
+      </div>
+      <div class="rbox">
+        <div class="rtit">👨 Principais pais da manada</div>
+        <div class="ri"><span class="rpos">1º</span><span class="rnome">QUARTO DE RONDA DA REPÚBLICA</span><div class="rbw"><div class="rb" style="width:100%"></div></div><span class="rcnt">8x</span></div>
+        <div class="ri"><span class="rpos">2º</span><span class="rnome">GOLPE SECO DO ITAÓ</span><div class="rbw"><div class="rb" style="width:62%"></div></div><span class="rcnt">5x</span></div>
+        <div class="ri"><span class="rpos">3º</span><span class="rnome">DESAFIO DE SANTA EDWIGES</span><div class="rbw"><div class="rb" style="width:50%;background:var(--campo)"></div></div><span class="rcnt">4x</span></div>
+        <div class="ri"><span class="rpos">4º</span><span class="rnome">FESTEIRO DO ITAPORORÓ</span><div class="rbw"><div class="rb" style="width:37%;background:var(--couro)"></div></div><span class="rcnt">3x</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="claim">"Saiba exatamente quais sangues dominam sua manada — e quais faltam para o cruzamento que você planeja."</p>
+      <ul class="sfeat">
+        <li>Consulta automática da <strong>5ª geração de cada animal</strong> cadastrado com SBB — até 31 ancestrais por cabeça</li>
+        <li>Rankings de <strong>afixos, pais, avós paternos e maternos</strong> — o retrato genético real da sua criação</li>
+        <li>Decisão de cruzamento baseada no que sua manada realmente tem, não no que você lembra que tem</li>
+        <li>Cache inteligente: consulta uma vez, resultado instantâneo depois</li>
+        <li><strong>Único sistema do mercado equino brasileiro</strong> com essa funcionalidade integrada automaticamente à ABCCC</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CONTROLE -->
+<section class="sec" id="controle">
+<div class="sec-in">
+  <div class="eyebrow campo-e">Controle na palma da mão</div>
+  <h2 class="stit">A cabanha inteira visível<br>em um acesso.</h2>
+  <div class="ctrl-lay" style="margin-top:3rem">
+    <div class="kboard">
+      <div class="ktit">Saúde · Vacinas · Visão geral</div>
+      <div class="kgrid">
+        <div><div class="klbl k-ok">Em dia</div><div class="kcard"><div class="kc-n">CORCEL DA MÃE DE DEUS</div><div class="kc-i">Influenza · nov 2026</div></div><div class="kcard"><div class="kc-n">CHANEL DA MÃE DE DEUS</div><div class="kc-i">AIE · ago 2026</div></div><div class="kcard"><div class="kc-n">SESMARIA DA RAUNA</div><div class="kc-i">Tétano · set 2026</div></div></div>
+        <div><div class="klbl k-att">Atenção (30d)</div><div class="kcard"><div class="kc-n">GOLPE SECO DO ITAÓ</div><div class="kc-i">Influenza · 18 ago</div></div><div class="kcard"><div class="kc-n">DEMASIA TUPAMBAÉ</div><div class="kc-i">AIE · 22 ago</div></div></div>
+        <div><div class="klbl k-venc">Vencido</div><div class="kcard"><div class="kc-n">TARDE DE SOL CHARRUA</div><div class="kc-i">Influenza · venceu</div></div></div>
+      </div>
+      <div class="kalert"><span>⚠️</span><span>TARDE DE SOL CHARRUA — Influenza vencida. Verificar antes do próximo evento.</span></div>
+    </div>
+    <div class="pontos">
+      <div class="ponto fi"><div class="pton-ic">🔔</div><div><div class="pton-t">Alertas antes do problema</div><div class="pton-d">O sistema avisa com 30 dias de antecedência. Nunca mais descobrir na morfologia que o animal está irregular.</div></div></div>
+      <div class="ponto fi"><div class="pton-ic">📱</div><div><div class="pton-t">De qualquer dispositivo, em tempo real</div><div class="pton-d">Cabanheiro registra do celular em campo. Veterinário acessa do computador. Criador acompanha de onde estiver. Todos veem a mesma informação.</div></div></div>
+      <div class="ponto fi"><div class="pton-ic">✅</div><div><div class="pton-t">Verificação antes de cada prova</div><div class="pton-d">Monte a lista de participantes e o Mimba verifica automaticamente vacinas, AIE e exames. Em um clique, você sabe quem está apto.</div></div></div>
+      <div class="ponto fi"><div class="pton-ic">📊</div><div><div class="pton-t">Dashboard de toda a cabanha</div><div class="pton-d">Animais ativos, gestações em curso, eventos próximos e pendências sanitárias — tudo visível na tela inicial.</div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- EFICIÊNCIA -->
+<section class="sec sec-creme" id="eficiencia">
+<div class="sec-in">
+  <div class="eyebrow campo-e">Eficiência operacional</div>
+  <h2 class="stit">Menos perdas. Menos tempo.<br>Mais resultado.</h2>
+  <p class="ssub">Cada hora gasta buscando informação, cada animal vencido em prova, cada gasto indevido por falta de controle — o Mimba elimina.</p>
+  <div class="efic-g">
+    <div class="efic fi"><div class="efic-n">0</div><div class="efic-t">Planilhas em paralelo</div><div class="efic-d">Tudo em um único sistema — vacinas, gestações, eventos, estoque, financeiro e genealogia. A informação não se perde entre arquivos.</div></div>
+    <div class="efic fi"><div class="efic-n">100%</div><div class="efic-t">SBBs integrados à ABCCC</div><div class="efic-d">Nome, sexo, nascimento, pelagem e genealogia preenchidos automaticamente. Sem redigitar o que já está registrado na ABCCC.</div></div>
+    <div class="efic fi"><div class="efic-n">5ª</div><div class="efic-t">Geração na palma da mão</div><div class="efic-d">Genealogia completa de toda a manada disponível automaticamente. Decisão de cruzamento em minutos, não em horas de pesquisa manual.</div></div>
+    <div class="efic fi"><div class="efic-n">&lt;2min</div><div class="efic-t">Do pagamento ao sistema pronto</div><div class="efic-d">Contratou, pagou e já recebe o acesso. Sua cabanha ativa em menos de 2 minutos. Sem instalação, sem configuração.</div></div>
+    <div class="efic fi"><div class="efic-n">∞</div><div class="efic-t">Histórico permanente</div><div class="efic-d">Backup automático diário na nuvem. Quando alguém sai da equipe, o conhecimento fica na cabanha.</div></div>
+    <div class="efic fi"><div class="efic-n">11</div><div class="efic-t">Módulos em um sistema</div><div class="efic-d">Saúde, reprodução, eventos, estoque, financeiro, nutrição, genealogia, biometria, linha do tempo, multi-usuário e análise de sangues. Todos integrados.</div></div>
+  </div>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- PLANOS -->
+<section class="sec" id="planos">
+<div class="sec-in">
+  <div class="eyebrow">Planos Mimba Gestão Crioulos</div>
+  <h2 class="stit">Escolha o tamanho<br>da sua operação.</h2>
+  <p class="ssub">Todos os planos incluem os 11 módulos completos, integração ABCCC e análise de sangues. Você paga proporcional ao porte da sua cabanha.</p>
+  <div class="planos-g">
+    <div class="plano fi">
+      <div class="ph"><div class="p-nome">Potro</div><div class="p-preco"><sup>R$</sup>97<sub>/mês</sub></div><div class="p-limite">Até 15 animais · 3 usuários</div></div>
+      <div class="pb"><ul class="pf"><li>11 módulos completos</li><li>Integração ABCCC (SBB automático)</li><li>Análise de sangues 5ª geração</li><li>Linha do tempo com fotos</li><li>Alertas automáticos de saúde</li><li>3 usuários incluídos</li><li>Suporte por e-mail</li><li class="off">Relatórios PDF</li><li class="off">Logo da cabanha no sistema</li></ul></div>
+      <a class="p-cta" href="mailto:contato@mimba.com.br?subject=Plano Potro">Contratar Potro</a>
+    </div>
+    <div class="plano dest fi">
+      <div class="ph"><div class="p-badge">mais escolhido</div><div class="p-nome">Arreio</div><div class="p-preco"><sup>R$</sup>197<sub>/mês</sub></div><div class="p-limite">Até 40 animais · 8 usuários</div></div>
+      <div class="pb"><ul class="pf"><li>Tudo do plano Potro</li><li>Até 40 animais ativos</li><li>Até 8 usuários</li><li>Logo da cabanha no sistema</li><li>Relatórios exportáveis PDF</li><li>Suporte prioritário</li><li>Onboarding assistido</li><li class="off">Cores personalizadas</li><li class="off">API para integrações</li></ul></div>
+      <a class="p-cta" href="mailto:contato@mimba.com.br?subject=Plano Arreio">Contratar Arreio</a>
+    </div>
+    <div class="plano fi">
+      <div class="ph"><div class="p-nome">Tropilha</div><div class="p-preco"><sup>R$</sup>397<sub>/mês</sub></div><div class="p-limite">Animais ilimitados · Usuários ilimitados</div></div>
+      <div class="pb"><ul class="pf"><li>Tudo do plano Arreio</li><li>Animais e usuários ilimitados</li><li>Cores da sua marca no sistema</li><li>API para integrações externas</li><li>Suporte via WhatsApp</li><li>Treinamento da equipe</li><li>SLA de disponibilidade garantido</li></ul></div>
+      <a class="p-cta" href="mailto:contato@mimba.com.br?subject=Plano Tropilha">Contratar Tropilha</a>
+    </div>
+  </div>
+  <p class="planos-nota">Cartão de crédito · PIX · Boleto bancário · Recorrência automática · Cancele quando quiser</p>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- TIME -->
+<section class="sec sec-creme" id="time">
+<div class="sec-in">
+  <div class="eyebrow campo-e">O time</div>
+  <h2 class="stit">Feito por quem vive<br>o universo crioulo.</h2>
+  <p class="ssub">A MimbaTech nasce da combinação de tecnologia, experiência de campo e presença no mercado crioulo. Um time com acesso direto ao criador e à ABCCC.</p>
+  <div class="time-g">
+    <div class="membro fi">
+      <div class="membro-av av-terra">LM</div>
+      <div>
+        <div class="membro-role">Fundador & Diretor · MimbaTech</div>
+        <div class="membro-nome">Luciano Luís Mantelli</div>
+        <div class="membro-bio">Multi-empreendedor nos segmentos de tecnologia, consultoria de negócios, agro, saúde e educação. Apaixonado pelo campo, proprietário da Cabanha Mãe de Deus — o case real onde o Mimba foi concebido, desenvolvido e validado.</div>
+        <span class="membro-tag">🐎 Cabanha Mãe de Deus · Tupanciretã/RS</span>
+      </div>
+    </div>
+    <div class="membro fi">
+      <div class="membro-av av-campo">TP</div>
+      <div>
+        <div class="membro-role">Frente de Mercado · MimbaTech</div>
+        <div class="membro-nome">Thiago Andreolla Persici</div>
+        <div class="membro-bio">Técnico credenciado ABCCC, comentarista e supervisor técnico em provas esportivas e funcionais. Voz reconhecida no universo crioulista, co-apresentador do podcast La Ruta. Sediado em Uruguaiana/RS, é o elo direto entre o Mimba e o mercado de cabanhas.</div>
+        <span class="membro-tag">🎙 Podcast La Ruta · ABCCC</span>
+      </div>
+    </div>
+    <div class="membro fi">
+      <div class="membro-av av-couro">PP</div>
+      <div>
+        <div class="membro-role">Tech Lead · MimbaTech</div>
+        <div class="membro-nome">Pedro Portella Possamai</div>
+        <div class="membro-bio">Engenheiro de software e arquiteto de soluções, responsável pela execução técnica do roadmap. Lidera o desenvolvimento da plataforma Mimba — da arquitetura multi-tenant à integração com a ABCCC.</div>
+        <span class="membro-tag">⚙️ Arquitetura & Desenvolvimento</span>
+      </div>
+    </div>
+    <div class="membro fi">
+      <div class="membro-av av-cinza">EE</div>
+      <div>
+        <div class="membro-role">Relações Públicas · MimbaTech</div>
+        <div class="membro-nome">Eliza Eberts</div>
+        <div class="membro-bio">Responsável pela presença digital da MimbaTech, estratégia de redes sociais e planejamento do lançamento. Coordena eventos e ações de visibilidade da marca Mimba junto ao mercado crioulista.</div>
+        <span class="membro-tag">📣 Redes Sociais & Eventos</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CASE -->
+<section class="sec" style="background:var(--terra)">
+<div class="sec-in">
+  <div class="eyebrow" style="color:var(--ouro-l)">Case real</div>
+  <h2 class="stit-l">Em produção na<br>Cabanha Mãe de Deus.</h2>
+  <p class="ssub-l">O Mimba foi concebido e validado em uma cabanha crioula real de Tupanciretã/RS. Tudo que você vê aqui existe e funciona hoje.</p>
+  <div class="case-box">
+    <p class="case-q">"Com o sistema, saímos de planilhas espalhadas para um controle centralizado de tudo — vacinas, gestações, eventos e análise de sangue da manada. Em um acesso, sei exatamente o status de cada animal."</p>
+    <div class="case-meta">
+      <div class="case-av">MD</div>
+      <div><div class="case-nm">Cabanha Mãe de Deus</div><div class="case-dt">Cavalos Crioulos ABCCC · Tupanciretã, RS · em uso desde 2025</div></div>
+    </div>
+    <div class="case-stats">
+      <div><div class="cs-n">31</div><div class="cs-l">Animais registrados</div></div>
+      <div><div class="cs-n">100%</div><div class="cs-l">SBBs na ABCCC</div></div>
+      <div><div class="cs-n">11</div><div class="cs-l">Módulos em uso</div></div>
+      <div><div class="cs-n">0</div><div class="cs-l">Planilhas ainda em uso</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CTA FINAL -->
+<div class="cta-s">
+  <div class="cta-inner">
+    <h2>Sua cabanha merece<br><em>mais do que uma planilha.</em></h2>
+    <p>Do pagamento ao sistema pronto em menos de 2 minutos. Integração ABCCC, análise de sangues e 11 módulos completos — incluídos em qualquer plano Mimba.</p>
+    <a class="btn-ouro" style="display:inline-flex;margin:0 auto" href="#planos">Ver planos e contratar →</a>
+    <p class="cta-nota">Cartão · PIX · Boleto · Cancele quando quiser · Suporte em português · mimba.com.br</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-marca">
+    <div class="footer-mimba"><span>Mimba</span> Gestão Crioulos</div>
+    <div class="footer-by">Uma solução MimbaTech</div>
+  </div>
+  <div class="footer-links">
+    <a href="#modulos">Funcionalidades</a>
+    <a href="#planos">Planos</a>
+    <a href="#time">Time</a>
+    <a href="mailto:contato@mimba.com.br">Contato</a>
+    <a href="#">Termos de uso</a>
+    <a href="#">Privacidade</a>
+  </div>
+  <div class="footer-copy">© 2026 MimbaTech. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}
+  });
+},{threshold:0.08});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
