@@ -9,5 +9,8 @@
 *secret*
 *token*
 
+# Fotos brutas (biblioteca local — só o otimizado vai para assets/)
+imagens/
+
 # Sistema
 .DS_Store
