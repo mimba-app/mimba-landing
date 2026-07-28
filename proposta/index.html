@@ -67,7 +67,7 @@ nav.scrolled{padding:.6rem 5%;background:rgba(28,16,8,.9);border-bottom:1px soli
 
 /* HERO */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:9rem 5% 5rem;overflow:hidden;background:var(--terra)}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 52%;transform:scale(1.08);will-change:transform;z-index:0}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 42%;transform:scale(1.08);will-change:transform;z-index:0}
 .hero-grade{position:absolute;inset:0;z-index:1;background:
   linear-gradient(100deg,rgba(20,11,5,.95) 0%,rgba(20,11,5,.8) 34%,rgba(28,16,8,.42) 66%,rgba(20,11,5,.66) 100%),
   linear-gradient(0deg,rgba(20,11,5,.94) 0%,transparent 42%)}
@@ -101,7 +101,6 @@ nav.scrolled{padding:.6rem 5%;background:rgba(28,16,8,.9);border-bottom:1px soli
 .sec-creme{background:var(--creme)}
 .sec-dark{background:var(--terra);position:relative;overflow:hidden}
 .sec-dark::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 85% 15%,rgba(184,134,11,.13) 0%,transparent 60%)}
-.case-photo{background:linear-gradient(rgba(28,16,8,.82),rgba(28,16,8,.9)),url('/assets/hero-crioulo.jpg') center 28%/cover no-repeat}
 .sep{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}
 .eyebrow::before{content:'';display:block;width:16px;height:2px;background:var(--grad-ouro);border-radius:2px}
@@ -289,6 +288,7 @@ footer{background:var(--terra);padding:3rem 5% 2.5rem;display:flex;justify-conte
 }
 @media(max-width:580px){
   .time-g{grid-template-columns:1fr}
+  .nav-login{display:none}
   .hero{padding:8rem 6% 4.5rem}
   .hero-ctas{flex-direction:column;align-items:stretch}
   .hero-ctas .btn-ouro,.hero-ctas .btn-ghost{justify-content:center}
@@ -321,7 +321,7 @@ footer{background:var(--terra);padding:3rem 5% 2.5rem;display:flex;justify-conte
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="/assets/hero-pampa.jpg" width="1600" height="900" alt="Manada de cavalos crioulos com um potro na campina de neblina do pampa" fetchpriority="high">
+  <img class="hero-bg" src="/assets/hero-retrato.jpg" width="1600" height="1068" alt="Cavalo crioulo com cabresto trançado no campo" fetchpriority="high">
   <div class="hero-grade"></div>
   <div class="hero-spot"></div>
   <div class="hero-tex"></div>
@@ -576,7 +576,7 @@ footer{background:var(--terra);padding:3rem 5% 2.5rem;display:flex;justify-conte
 </section>
 
 <!-- CASE -->
-<section class="sec sec-dark case-photo">
+<section class="sec sec-dark">
 <div class="sec-in">
   <div class="eyebrow gold-e">Case real</div>
   <h2 class="stit-l rclip">Em produção na<br>Cabanha Mãe de Deus.</h2>
