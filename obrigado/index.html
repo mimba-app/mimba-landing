@@ -20,10 +20,17 @@
 </head>
 <body>
   <div class="check">✓</div>
-  <h1>Pagamento recebido!</h1>
-  <p>Obrigado por contratar o <strong style="color:var(--creme)">Mimba</strong>. Estamos preparando o ambiente da sua cabanha.</p>
-  <div class="box">Em instantes você recebe os <strong style="color:var(--creme)">dados de acesso</strong> no email cadastrado. Depois é só entrar em <strong style="color:var(--creme)">app.mimba.com.br</strong> com seu email e senha.</div>
+  <h1 id="titulo">Pagamento recebido!</h1>
+  <p id="texto">Obrigado por contratar o <strong style="color:var(--creme)">Mimba</strong>. Estamos preparando o ambiente da sua cabanha.</p>
+  <div class="box" id="box">Em instantes você recebe os <strong style="color:var(--creme)">dados de acesso</strong> no email cadastrado. Depois é só entrar em <strong style="color:var(--creme)">app.mimba.com.br</strong> com seu email e senha.</div>
   <a class="btn" href="https://app.mimba.com.br">Ir para o login →</a>
   <a class="link" href="https://mimba.com.br">← Voltar ao site</a>
+<script>
+if(new URLSearchParams(location.search).get('trial')==='1'){
+  document.getElementById('titulo').textContent='Sua cabanha está pronta!';
+  document.getElementById('texto').innerHTML='Seu teste grátis de <strong style="color:var(--creme)">30 dias</strong> do <strong style="color:var(--creme)">Mimba</strong> começou agora. Nenhuma cobrança foi feita.';
+  document.getElementById('box').innerHTML='Em instantes você recebe os <strong style="color:var(--creme)">dados de acesso</strong> no email cadastrado. Após os 30 dias, a cobrança do plano escolhido inicia automaticamente no cartão informado — cancele quando quiser antes disso.';
+}
+</script>
 </body>
 </html>
