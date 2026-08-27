@@ -1,597 +1,99 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mimba — A inteligência da sua cabanha</title>
-<meta name="description" content="Mimba é a plataforma de gestão para cabanhas de Cavalo Crioulo ABCCC. Genealogia até a 5ª geração, controle sanitário automático e eficiência no dia a dia. Uma solução MimbaTech.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --terra:#1C1008; --terra-l:#2E1A0C; --couro:#4A2E18;
-  --ouro:#B8860B; --ouro-l:#D4A017; --ouro-xl:#E8C547; --ouro-bg:#FBF5DC;
-  --campo:#2D5A3D; --campo-l:#3D7A54; --campo-xl:#52A870; --campo-bg:#EBF5EF;
-  --creme:#F5EFE0; --creme-d:#EAE0CC;
-  --cinza:#8A7F72; --cinza-l:#C0B4A8;
-  --bg:#FAFAF7; --border:#DDD5C8; --text:#1C1008; --text2:#5C4F42;
-  --r:10px; --rl:16px;
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mimba. Inteligência para quem cria.</title><meta name="description" content="Sua cabanha na palma da mão. Planeje, cuide e evolua sua criação de Cavalos Crioulos com o Mimba."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet"><style>
+:root{--ink:#251f17;--green:#4d6b31;--green2:#30451d;--terra:#b45f35;--cream:#f4efe5;--paper:#fffaf2;--muted:#746b60;--line:rgba(37,31,23,.12);--dark:#f1eadf;--lime:#9bca59;--warn:#d89431;--red:#b9574d;--shadow:0 24px 70px rgba(51,42,27,.13)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}.shell{width:min(1440px,calc(100% - 64px));margin:auto}.title{font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.055em}.eyebrow{font:500 11px/1.2 'DM Mono';letter-spacing:.17em;text-transform:uppercase;color:var(--terra)}.mono{font-family:'DM Mono',monospace}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:9px;font-weight:700;border:1px solid var(--line)}.btn.primary{background:var(--green);color:#fff;border-color:transparent}.btn.light{background:rgba(255,255,255,.58)}nav{height:70px;position:sticky;top:0;z-index:20;background:rgba(244,239,229,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{height:100%;display:flex;align-items:center;justify-content:space-between}.logo{font:800 27px/1 Manrope;letter-spacing:-.06em}.dot{color:#b8860b}.links{display:flex;align-items:center;gap:24px;font-size:13px;color:#5e574f}
+.hero{padding:86px 0 104px}.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}.hero h1{font-size:clamp(62px,6vw,106px);line-height:.9;margin:16px 0 28px;max-width:720px}.lead{font-size:20px;line-height:1.55;color:#5e564d;max-width:670px}.actions,.stores{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.stores{margin-top:18px}.store{background:#171715;color:white;border-radius:9px;padding:8px 13px;min-width:145px}.store small{display:block;font-size:8px;text-transform:uppercase;color:#bbb}.store b{font-size:14px}.launch{margin-top:16px;font-size:11px;color:#71695f}.hero-product{position:relative;min-height:640px}.product-frame{position:absolute;inset:18px 0 18px 70px;border-radius:32px;background:#fffaf2;border:1px solid var(--line);padding:14px;box-shadow:var(--shadow);overflow:hidden}.product-frame img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:22px}.phone-crop{position:absolute;width:275px;left:0;bottom:0;border:7px solid #fffaf2;border-radius:34px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.25);background:#fffaf2}.phone-crop img{width:100%;height:520px;object-fit:cover;object-position:top}.float{position:absolute;background:var(--paper);padding:15px 17px;border-radius:14px;box-shadow:var(--shadow);font-size:12px}.float b{display:block;font:700 16px Manrope;margin-top:4px}.f1{right:-18px;top:42px}.f2{right:12px;bottom:48px}
+section{padding:108px 0}.head{max-width:900px;margin-bottom:50px}.head h2{font-size:clamp(43px,4.8vw,72px);line-height:.98;margin:12px 0 18px}.head p{font-size:18px;line-height:1.65;color:#655d54}.proof{display:grid;grid-template-columns:1.25fr .75fr .75fr;gap:16px}.card{background:var(--paper);border-radius:20px;padding:25px;box-shadow:0 14px 42px rgba(60,47,29,.08)}.card h3{font:700 23px Manrope;letter-spacing:-.03em;margin:8px 0}.big-num{font:800 56px Manrope;letter-spacing:-.06em;margin-top:16px;color:var(--green)}
+.product-section{background:#ebe4d8}.split{display:grid;grid-template-columns:.82fr 1.18fr;gap:64px;align-items:center}.shot{background:#fffaf2;border:1px solid var(--line);border-radius:28px;padding:12px;box-shadow:var(--shadow);overflow:hidden}.shot img{width:100%;max-height:690px;object-fit:cover;object-position:top;border-radius:19px}.copy h2{font-size:clamp(42px,4.4vw,70px);line-height:.98;margin:12px 0 20px}.copy p{font-size:18px;line-height:1.65;color:#625a50}.bullets{display:grid;gap:10px;margin-top:24px}.bullet{padding:13px 15px;background:rgba(255,255,255,.52);border-radius:10px;font-weight:600}
+.dark{background:#f1eadf;color:var(--ink)}.dark .copy p,.dark .head p{color:#655d54}.dark .eyebrow{color:var(--terra)}.repro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:start}.dream{font:800 clamp(28px,3vw,45px)/1.12 Manrope;letter-spacing:-.04em;margin:26px 0}.flow{display:flex;gap:8px;flex-wrap:wrap}.flow span{border:1px solid var(--line);padding:9px 11px;border-radius:99px;font:500 10px 'DM Mono'}.real-ui{background:#fffaf2;border:1px solid var(--line);border-radius:25px;padding:12px;overflow:hidden}.real-ui img{width:100%;max-height:720px;object-fit:cover;object-position:top;border-radius:16px}.match{margin-top:18px;background:#fffaf2;border:1px solid var(--line);border-radius:18px;padding:20px}.match-row{display:grid;grid-template-columns:46px 1fr auto;gap:12px;align-items:center;padding:12px;border-bottom:1px solid var(--line)}.score{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#e6efdb;color:#29401b;font:700 11px 'DM Mono'}.pill{font-size:10px;padding:7px 9px;border-radius:7px;background:#e6efdb;color:#29401b;font-weight:700}
+.agent{background:#ede6da}.agent-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}.chat{background:#fffaf2;border:1px solid var(--line);border-radius:30px;padding:18px;box-shadow:var(--shadow)}.chat-inner{background:#f7f3ea;border-radius:20px;padding:22px;min-height:580px}.chat-top{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px}.bubble{max-width:82%;padding:13px 15px;border-radius:15px;margin:16px 0;font-size:14px;line-height:1.45}.user{margin-left:auto;background:#dfe8d5}.bot{background:white}.prompt-list{display:grid;gap:10px;margin-top:25px}.prompt{padding:13px 14px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.5);font-size:13px}.labline{margin-top:18px;font:500 10px 'DM Mono';letter-spacing:.09em;color:var(--green)}
+.event-panel{background:var(--paper);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}.event-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.events{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px}.event{padding:20px;border-radius:15px;background:#fff}.event h3{font:700 20px Manrope}.check{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--line);font-size:12px}.ok b{color:var(--green)}.warn b{color:#a66318}.story{font:800 clamp(25px,2.8vw,40px)/1.15 Manrope;letter-spacing:-.035em;max-width:850px;margin-bottom:35px}
+.confirm img{width:100%;border-radius:22px;box-shadow:var(--shadow)}.confirm-detail{display:grid;grid-template-columns:.75fr 1.25fr;gap:22px;margin-top:22px}.kpi{background:var(--paper);border-radius:20px;padding:28px}.kpi strong{font:800 48px Manrope;color:var(--green)}
+.nutri{background:#f1eadf;color:var(--ink)}.nutri .copy p{color:#655d54}.team{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:30px}.role{background:var(--paper);padding:20px;border-radius:16px}.role b{display:block;font:700 18px Manrope;margin-bottom:7px}.role span{font-size:13px;color:#6e655b}.registry-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}.stack{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stack .shot:nth-child(2){margin-top:48px}.apps{background:#ebe4d8;color:var(--ink)}.apps .head p{color:#655d54}.devices{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.device{background:#fffaf2;border:1px solid var(--line);border-radius:25px;padding:10px;overflow:hidden}.device img{width:100%;height:520px;object-fit:cover;object-position:top;border-radius:17px}.final{padding:135px 0;background:#e8dfd1;color:var(--ink);border-top:1px solid var(--line);text-align:center}.final h2{font-size:clamp(48px,6vw,92px);line-height:.95;max-width:1100px;margin:0 auto 22px}.final p{font-size:20px;color:#655d54}.final .btn{background:var(--green);color:#fff;border-color:transparent;margin-top:20px}.footer{padding:28px 0;font-size:12px;color:#746b60}.footerin{display:flex;justify-content:space-between;gap:20px}
+@media(max-width:980px){.hero-grid,.split,.repro-grid,.agent-grid,.registry-grid,.confirm-detail{grid-template-columns:1fr}.hero-product{min-height:620px}.proof{grid-template-columns:1fr}.events{grid-template-columns:1fr}.team{grid-template-columns:1fr 1fr}.devices{grid-template-columns:1fr 1fr 1fr}.links a:not(.btn){display:none}.copy{max-width:850px}.shot img,.real-ui img{max-height:none}}
+@media(max-width:640px){.shell{width:min(100% - 30px,1440px)}nav{height:62px}.hero{padding:58px 0 70px}.hero h1{font-size:55px}.lead{font-size:17px}.hero-product{min-height:490px;margin-top:12px}.product-frame{inset:0 0 70px 30px}.phone-crop{width:190px}.phone-crop img{height:370px}.float{display:none}section{padding:76px 0}.head h2,.copy h2{font-size:41px}.head p,.copy p{font-size:16px}.team,.devices,.stack{grid-template-columns:1fr}.stack .shot:nth-child(2){margin-top:0}.device img{height:auto}.footerin{flex-direction:column}.event-head{font-size:10px}.repro-grid{gap:28px}}
+
+.demo{font-family:Manrope,sans-serif;color:#252821}.demo-bar{display:flex;align-items:center;gap:16px;padding:14px 16px;border-bottom:1px solid #ded8cd}.demo-bar b{font-size:18px}.demo-bar span{color:#766e64}.demo-bar i{margin-left:auto;font-style:normal;background:#eee8dd;padding:7px 10px;border-radius:8px;font-size:11px}.demo-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px}.demo-stats b{font-size:26px;background:#f3efe7;padding:14px;border-radius:12px}.demo-stats small{display:block;font-size:9px;color:#756e64;margin-top:3px}.horse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 14px 14px}.horse-grid article,.horse-list>div{background:#fff;padding:14px;border:1px solid #e7e1d7;border-radius:13px}.horse-grid b,.horse-grid small{display:block}.horse-grid small{font-size:9px;color:#766e64;margin:5px 0}.horse-grid em,.horse-list em{font-style:normal;font-size:9px;color:#315d4d}.horse-avatar,.animal-orb{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#315d4d;color:white;font-weight:800;margin-bottom:9px}.phone-demo{padding:20px!important}.phone-head{font-weight:800;font-size:20px;margin-bottom:22px}.phone-head small{display:block;font-size:9px;letter-spacing:.12em;color:#7b7368}.phone-demo>b,.phone-demo>small{display:block}.mini-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #e7e1d7;font-size:10px}.horse-list{padding:0 14px 14px;display:grid;gap:8px}.horse-list>div{display:flex;align-items:center;gap:12px}.horse-list .horse-avatar{margin:0}.horse-list p{margin:0;flex:1}.horse-list p small{display:block;color:#756e64;font-size:10px}.mare-card{margin:20px;padding:20px;background:#f1eadc;border-radius:16px}.mare-card small,.mare-card b,.mare-card span{display:block}.mare-card b{font-size:22px;margin:5px 0}.mare-card span{color:#315d4d;font-weight:700}.sire{display:flex;align-items:center;gap:14px;margin:10px 20px;padding:15px;background:white;border-radius:14px}.sire strong{font-size:30px;color:#315d4d}.sire p{margin:0;flex:1}.sire small{display:block;color:#756e64}.sire em{font-style:normal;background:#315d4d;color:#fff;padding:6px 9px;border-radius:8px}.bloodline{margin:20px;padding:18px;text-align:center;border-top:1px solid #ddd4c6;font-size:10px;font-weight:800;letter-spacing:.1em}.bloodline span{color:#b7663d;margin:0 7px}.confirm-flow{display:grid!important;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr!important;align-items:center;gap:12px;padding:28px!important}.confirm-flow>div{padding:18px;background:#f5f0e8;border-radius:15px}.confirm-flow strong,.confirm-flow b,.confirm-flow small{display:block}.confirm-flow strong{font-size:42px;color:#315d4d}.confirm-flow small{font-size:10px;color:#766e64}.bio-demo{padding:0!important}.measure{padding:20px}.measure b,.measure small{display:block}.measure b{font-size:38px}.growth{height:130px;display:flex;align-items:end;gap:12px;padding:0 20px 15px}.growth i{flex:1;background:#315d4d;border-radius:7px 7px 2px 2px}.bio-foot{padding:15px 20px;background:#f3eee5;display:grid;gap:6px;font-size:10px}.bio-foot span{display:flex;justify-content:space-between}.bio-foot em{font-style:normal;color:#315d4d;font-weight:700}.nutrition-demo{padding-bottom:20px}.project-title{padding:20px}.project-title small,.project-title b,.project-title em{display:block}.project-title b{font-size:26px}.project-title em{font-style:normal;color:#315d4d}.ration{margin:0 20px;padding:13px 0;border-bottom:1px solid #e2dbcf;display:flex;justify-content:space-between}.evolution{margin:20px;background:#f1eadc;padding:14px;border-radius:12px}.evolution i{display:block;height:6px;background:linear-gradient(90deg,#315d4d 76%,#ddd4c6 76%);border-radius:6px;margin:8px 0}.registry-demo{padding:24px!important}.registry-demo h3{margin:4px 0}.timeline{margin-top:20px;border-left:2px solid #315d4d;padding-left:18px;display:grid;gap:14px}.timeline span{position:relative}.timeline span:before{content:'';position:absolute;left:-24px;top:5px;width:10px;height:10px;background:#315d4d;border-radius:50%}.timeline b,.timeline small{display:block}.timeline small{color:#766e64}.registry-side{padding:28px!important}.registry-side>b{font-size:23px;display:block;margin-bottom:20px}.lab-demo{padding-bottom:18px!important}.lab-chart{padding:22px;display:grid;gap:14px}.lab-chart div{display:grid;grid-template-columns:110px 1fr 25px;align-items:center;gap:10px;font-size:10px}.lab-chart i{height:10px;border-radius:8px;background:linear-gradient(90deg,#315d4d var(--v),#e4ded4 var(--v))}.lab-q{margin:5px 20px 15px;background:#e7eee0;color:#29401b;padding:15px;border-radius:12px;font-weight:700}.app-phone{min-height:380px;padding:24px!important;background:#f6f1e8!important}.app-phone>strong{display:block;font-size:58px;color:#315d4d}.app-phone>span{font-size:11px;color:#766e64}.app-phone .animal-orb{width:70px;height:70px;font-size:24px;margin:30px auto 10px}.app-phone>.animal-orb+ b{display:block;text-align:center;margin-bottom:25px}@media(max-width:700px){.demo-stats{grid-template-columns:repeat(2,1fr)}.horse-grid{grid-template-columns:1fr}.confirm-flow{grid-template-columns:1fr!important}.confirm-flow>span{transform:rotate(90deg);text-align:center}.lab-chart div{grid-template-columns:80px 1fr 22px}}
+
+.origin-pill{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid rgba(184,134,11,.24);background:rgba(255,250,242,.72);border-radius:999px;margin-bottom:18px;font-size:11px;color:#6a604f}.origin-pill strong{font:600 9px 'DM Mono';letter-spacing:.14em;text-transform:uppercase;background:#d6b24d;color:#2d261b;padding:5px 8px;border-radius:999px}.origin-pill b{color:#8f6811}.origin-pill a{font-weight:700;color:var(--green)}
+.about{background:#f6f1e8}.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:start}.about-copy h2{font-size:clamp(42px,4.8vw,72px);line-height:.98;margin:12px 0 22px}.about-copy p{font-size:17px;line-height:1.72;color:#625a50}.about-meaning{margin:26px 0 0;padding:22px 24px;border-left:3px solid var(--terra);background:rgba(255,250,242,.72);border-radius:0 16px 16px 0}.about-meaning strong{display:block;font:800 26px Manrope;letter-spacing:-.04em;margin-bottom:7px}.about-meaning span{color:#6b6258;line-height:1.55}.brand-equation{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch}.brand-pillar{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 14px 42px rgba(60,47,29,.06)}.brand-pillar .symbol{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#ede6da;color:var(--green);font:800 18px Manrope;margin-bottom:18px}.brand-pillar h3{font:700 20px Manrope;margin:0 0 8px}.brand-pillar p{font-size:13px;line-height:1.55;color:#6b6258;margin:0}.brand-plus{display:grid;place-items:center;font:400 34px Manrope;color:#8d8478}.brand-result{grid-column:1/-1;margin-top:4px;background:#efe7d8;border:1px solid rgba(180,95,53,.16);border-radius:18px;padding:22px;text-align:center}.brand-result b{display:block;font:800 28px Manrope;letter-spacing:-.04em;color:var(--terra)}.brand-result span{font-size:14px;color:#635a50}.about-closing{grid-column:1/-1;margin-top:8px;text-align:center;font:700 clamp(22px,2.4vw,34px)/1.25 Manrope;letter-spacing:-.035em;max-width:920px;justify-self:center}
+.plans{background:#ebe4d8}.plans .head{text-align:center;margin-left:auto;margin-right:auto}.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.plan-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:26px;box-shadow:0 16px 46px rgba(60,47,29,.08);display:flex;flex-direction:column;min-height:100%}.plan-card.featured{border:2px solid rgba(77,107,49,.34);transform:translateY(-6px)}.plan-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:16px}.plan-name{font:800 31px Manrope;letter-spacing:-.05em;margin:2px 0 0}.plan-cap{font-size:12px;color:#746b60;margin-top:4px}.plan-badge{font:600 9px 'DM Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--terra);background:#f1e2d7;padding:7px 9px;border-radius:999px}.price-choice{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px;margin-top:10px}.price-choice.ai{background:#edf3e8;border-color:rgba(77,107,49,.22)}.price-label{font-size:12px;font-weight:700;margin-bottom:10px}.price{display:flex;align-items:flex-end;gap:5px}.price .currency{font-size:14px;color:#6d655b;padding-bottom:6px}.price strong{font:800 37px Manrope;letter-spacing:-.055em;color:var(--ink)}.price span{font-size:13px;color:#746b60;padding-bottom:6px}.price-note{font-size:11px;color:#6e655b;margin-top:7px;line-height:1.45}.plan-features{display:grid;gap:9px;margin:22px 0 24px;padding:0;list-style:none}.plan-features li{font-size:13px;line-height:1.45;color:#5f574e;padding-left:21px;position:relative}.plan-features li:before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}.plan-card .btn{margin-top:auto}.plan-footnote{text-align:center;margin-top:20px;font-size:11px;line-height:1.55;color:#70675d}.plan-footnote b{color:var(--ink)}
+@media(max-width:1100px){.about-grid{grid-template-columns:1fr}.plan-grid{grid-template-columns:1fr}.plan-card.featured{transform:none}}@media(max-width:800px){.brand-equation{grid-template-columns:1fr}.brand-plus{min-height:28px}.brand-result{grid-column:auto}}@media(max-width:640px){.origin-pill{align-items:flex-start;flex-wrap:wrap;border-radius:16px}.about-copy p{font-size:16px}.plan-card{padding:20px}}
+
+/* V4.4 — refinamentos MIV solicitados */
+.origin-pill{
+  position:relative;
+  margin-bottom:46px;
+  background:rgba(255,250,242,.82);
+  border-color:rgba(184,134,11,.28);
+  box-shadow:0 0 0 0 rgba(184,134,11,.13);
+  animation:mimbaPulse 3.2s ease-in-out infinite;
 }
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.85rem 5%;background:rgba(28,16,8,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.nav-wordmark{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--creme);letter-spacing:-.01em}
-.nav-wordmark span{color:var(--ouro-xl)}
-.nav-byline{font-size:9px;color:rgba(245,239,224,.3);letter-spacing:.1em;text-transform:uppercase;margin-top:-2px}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{font-size:13px;color:rgba(245,239,224,.45);text-decoration:none;transition:color .2s;font-weight:400}
-.nav-links a:hover{color:var(--creme)}
-.nav-cta{background:var(--ouro);color:var(--terra);font-size:13px;font-weight:700;padding:.55rem 1.3rem;border-radius:var(--r);text-decoration:none;transition:all .2s}
-.nav-cta:hover{background:var(--ouro-l);transform:translateY(-1px)}
-.nav-actions{display:flex;align-items:center;gap:1.1rem}
-.nav-login{font-size:13px;color:rgba(245,239,224,.6);text-decoration:none;font-weight:500;white-space:nowrap;transition:color .2s}
-.nav-login:hover{color:var(--creme)}
-@media(max-width:680px){.nav-links{display:none}.nav-byline{display:none}}
-
-/* HERO */
-.hero{min-height:100svh;background:var(--terra);display:flex;flex-direction:column;justify-content:center;padding:9rem 5% 6rem;position:relative;overflow:hidden}
-.hero-tex{position:absolute;inset:0;background-image:linear-gradient(rgba(184,134,11,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(184,134,11,.035) 1px,transparent 1px);background-size:72px 72px}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 80% 25%,rgba(184,134,11,.12) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 5% 80%,rgba(45,90,61,.15) 0%,transparent 60%)}
-.hero-inner{position:relative;z-index:2;max-width:1240px;width:100%;margin:0 auto}
-.hero-top{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;margin-bottom:4rem}
-.hero-copy{min-width:0}
-.hero-media{margin:0;border-radius:var(--rl);overflow:hidden;border:1px solid rgba(184,134,11,.22);box-shadow:0 24px 70px rgba(0,0,0,.45)}
-.hero-media img{display:block;width:100%;height:100%;max-height:520px;object-fit:cover;object-position:50% 30%}
-.hero-etim{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:2rem;padding:.45rem 1rem .45rem .6rem;background:rgba(184,134,11,.08);border:1px solid rgba(184,134,11,.18);border-radius:99px}
-.etim-pill{background:var(--ouro);color:var(--terra);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:99px}
-.etim-txt{font-size:12px;color:rgba(232,197,71,.65);font-weight:300;letter-spacing:.02em}
-.etim-txt strong{color:rgba(232,197,71,.9);font-weight:600}
-.hero-nome{font-family:'Playfair Display',serif;font-size:clamp(5rem,14vw,11rem);font-weight:900;line-height:.95;color:var(--creme);letter-spacing:-.04em;margin-bottom:1.5rem;position:relative}
-.hero-nome em{color:var(--ouro-xl);font-style:normal}
-.hero-titulo{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:400;font-style:italic;color:rgba(245,239,224,.7);line-height:1.35;margin-bottom:1.5rem;max-width:560px}
-.hero-sub{font-size:1rem;color:rgba(245,239,224,.45);font-weight:300;max-width:540px;line-height:1.75;margin-bottom:3rem}
-.hero-ctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:0}
-.btn-ouro{display:inline-flex;align-items:center;gap:.5rem;background:var(--ouro);color:var(--terra);font-size:15px;font-weight:700;padding:.9rem 2rem;border-radius:var(--r);text-decoration:none;box-shadow:0 4px 20px rgba(184,134,11,.3);transition:all .2s}
-.btn-ouro:hover{background:var(--ouro-l);transform:translateY(-2px);box-shadow:0 6px 28px rgba(184,134,11,.4)}
-.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:rgba(245,239,224,.65);border:1px solid rgba(255,255,255,.14);font-size:15px;font-weight:400;padding:.9rem 2rem;border-radius:var(--r);text-decoration:none;transition:all .2s}
-.btn-ghost:hover{border-color:rgba(255,255,255,.3);color:var(--creme)}
-.hero-stats{display:flex;gap:3rem;flex-wrap:wrap;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.07)}
-.hstat-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--creme);line-height:1;margin-bottom:.25rem}
-.hstat-n em{color:var(--ouro-xl);font-style:normal}
-.hstat-l{font-size:10px;color:rgba(245,239,224,.35);text-transform:uppercase;letter-spacing:.12em}
-
-/* SEÇÕES */
-.sec{padding:7rem 5%}
-.sec-in{max-width:1200px;margin:0 auto}
-.sec-alt{background:var(--terra-l)}
-.sec-creme{background:var(--creme)}
-.sep{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
-.sep-dark{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
-.eyebrow::before{content:'';display:block;width:14px;height:2px;background:var(--ouro);border-radius:2px}
-.eyebrow.campo-e{color:var(--campo-l)}
-.eyebrow.campo-e::before{background:var(--campo-l)}
-.eyebrow.creme-e{color:var(--creme-d)}
-.eyebrow.creme-e::before{background:var(--cinza-l)}
-h2.stit{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.12;color:var(--text);margin-bottom:.8rem}
-h2.stit-l{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.12;color:var(--creme);margin-bottom:.8rem}
-.ssub{font-size:1rem;color:var(--cinza);max-width:560px;font-weight:300;line-height:1.75;margin-bottom:3rem}
-.ssub-l{font-size:1rem;color:rgba(245,239,224,.55);max-width:560px;font-weight:300;line-height:1.75;margin-bottom:3rem}
-
-/* PILARES */
-.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.pilar{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:2rem;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
-.pilar:hover{transform:translateY(-3px);border-color:var(--campo-l)}
-.pilar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.p1::before{background:linear-gradient(90deg,var(--campo),var(--campo-xl))}
-.p2::before{background:linear-gradient(90deg,var(--ouro),var(--ouro-l))}
-.p3::before{background:linear-gradient(90deg,var(--couro),var(--cinza))}
-.pilar-icon{font-size:2rem;margin-bottom:1rem}
-.pilar-titulo{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--terra);margin-bottom:.6rem}
-.pilar-txt{font-size:13.5px;color:var(--text2);font-weight:300;line-height:1.7}
-.pilar-list{list-style:none;margin-top:.9rem;display:flex;flex-direction:column;gap:.35rem}
-.pilar-list li{font-size:12.5px;color:var(--cinza);display:flex;gap:.5rem;line-height:1.4}
-.pilar-list li::before{content:'↗';color:var(--campo-l);flex-shrink:0;font-size:11px;margin-top:1px}
-
-/* MÓDULOS */
-.mods{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.mod{background:white;border:1px solid var(--border);border-radius:var(--r);padding:1.4rem 1.6rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .2s}
-.mod:hover{border-color:var(--campo-l)}
-.mod-ic{font-size:1.5rem;width:36px;flex-shrink:0;text-align:center;margin-top:2px}
-.mod-n{font-size:14px;font-weight:600;color:var(--terra);margin-bottom:.25rem}
-.mod-d{font-size:12.5px;color:var(--text2);font-weight:300;line-height:1.55}
-.mod-tag{display:inline-block;margin-top:.4rem;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 8px;border-radius:99px;border:1px solid}
-.mt-g{background:var(--campo-bg);color:var(--campo-l);border-color:rgba(61,122,84,.2)}
-.mt-a{background:var(--ouro-bg);color:var(--ouro);border-color:rgba(184,134,11,.2)}
-.mt-e{background:#FBF5DC;color:#7A5500;border-color:rgba(184,134,11,.3)}
-
-/* SANGUES */
-.sangues-lay{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.rbox{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:1.2rem 1.4rem;margin-bottom:.8rem}
-.rtit{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(245,239,224,.3);margin-bottom:.8rem}
-.ri{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
-.rpos{font-family:'DM Mono',monospace;font-size:11px;color:rgba(245,239,224,.3);width:18px;flex-shrink:0}
-.rnome{font-size:12px;color:rgba(245,239,224,.6);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rbw{width:80px;height:4px;background:rgba(255,255,255,.06);border-radius:99px;flex-shrink:0}
-.rb{height:4px;border-radius:99px;background:var(--ouro)}
-.rcnt{font-family:'DM Mono',monospace;font-size:10px;color:rgba(245,239,224,.3);width:24px;text-align:right;flex-shrink:0}
-.claim{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:rgba(245,239,224,.65);line-height:1.55;margin-bottom:1.5rem;padding-left:1.2rem;border-left:2px solid var(--ouro)}
-.sfeat{list-style:none;display:flex;flex-direction:column;gap:.6rem}
-.sfeat li{font-size:13.5px;color:rgba(245,239,224,.6);display:flex;gap:.7rem;align-items:flex-start;font-weight:300}
-.sfeat li::before{content:'✓';color:var(--ouro-xl);font-weight:700;flex-shrink:0;margin-top:2px}
-
-/* CONTROLE */
-.ctrl-lay{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.kboard{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.5rem}
-.ktit{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--cinza);margin-bottom:1rem}
-.kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.klbl{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:.3rem;border-radius:6px;margin-bottom:.4rem}
-.k-ok{background:rgba(61,122,84,.1);color:var(--campo-l)}
-.k-att{background:rgba(184,134,11,.1);color:var(--ouro)}
-.k-venc{background:rgba(212,60,60,.1);color:#C04040}
-.kcard{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:.55rem .7rem;margin-bottom:.35rem}
-.kc-n{font-size:11px;font-weight:600;color:var(--text);margin-bottom:.15rem}
-.kc-i{font-size:10px;color:var(--cinza);font-weight:300}
-.kalert{display:flex;align-items:center;gap:.6rem;background:var(--ouro-bg);border:1px solid rgba(184,134,11,.2);border-radius:var(--r);padding:.6rem .8rem;margin-top:.8rem}
-.kalert span{font-size:11px;color:var(--ouro);font-weight:400}
-.pontos{display:flex;flex-direction:column;gap:.9rem}
-.ponto{display:flex;gap:.9rem;align-items:flex-start}
-.pton-ic{width:38px;height:38px;border-radius:var(--r);background:var(--campo-bg);border:1px solid rgba(61,122,84,.2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1rem}
-.pton-t{font-size:14px;font-weight:600;color:var(--terra);margin-bottom:.2rem}
-.pton-d{font-size:12.5px;color:var(--text2);font-weight:300;line-height:1.55}
-
-/* EFICIÊNCIA */
-.efic-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-.efic{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.8rem;position:relative;overflow:hidden}
-.efic::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--campo),var(--campo-xl));opacity:.5}
-.efic-n{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--campo-l);line-height:1;margin-bottom:.4rem}
-.efic-t{font-size:14px;font-weight:600;color:var(--terra);margin-bottom:.4rem}
-.efic-d{font-size:12.5px;color:var(--text2);font-weight:300;line-height:1.6}
-
-/* PLANOS */
-.planos-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-.plano{background:white;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
-.plano:hover{transform:translateY(-3px)}
-.plano.dest{border-color:var(--ouro);border-width:2px}
-.plano.dest:hover{box-shadow:0 8px 40px rgba(184,134,11,.15)}
-.ph{padding:1.8rem 1.8rem 1.4rem;border-bottom:1px solid var(--border)}
-.plano.dest .ph{background:var(--ouro-bg)}
-.p-badge{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--ouro);color:var(--terra);padding:2px 10px;border-radius:99px;display:inline-block;margin-bottom:.8rem}
-.p-nome{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--cinza);margin-bottom:.5rem}
-.p-preco{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;color:var(--terra);line-height:1}
-.p-preco sup{font-size:1rem;vertical-align:super;font-weight:400;font-family:'DM Sans',sans-serif;color:var(--cinza)}
-.p-preco sub{font-size:.9rem;font-weight:300;font-family:'DM Sans',sans-serif;color:var(--cinza-l)}
-.p-limite{font-size:12px;color:var(--cinza);margin-top:.4rem}
-.pb{padding:1.4rem 1.8rem;flex:1 1 auto}
-.pf{list-style:none;display:flex;flex-direction:column;gap:.45rem}
-.pf li{font-size:13px;color:var(--text2);display:flex;gap:.6rem;align-items:flex-start;font-weight:300}
-.pf li::before{content:'✓';color:var(--campo-l);font-weight:700;flex-shrink:0;margin-top:2px}
-.pf li.off{color:var(--cinza-l)}
-.pf li.off::before{content:'–';color:var(--border)}
-.p-cta{display:block;text-align:center;margin:0 1.8rem 1.8rem;background:var(--campo);color:white;font-size:14px;font-weight:600;padding:.85rem;border-radius:var(--r);text-decoration:none;transition:background .2s}
-.p-cta:hover{background:var(--campo-l)}
-.plano.dest .p-cta{background:var(--ouro);color:var(--terra)}
-.plano.dest .p-cta:hover{background:var(--ouro-l)}
-.planos-nota{text-align:center;font-size:12px;color:var(--cinza);margin-top:1.2rem;font-weight:300}
-
-/* TIME */
-.time-g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
-.membro{background:white;border:1px solid var(--border);border-radius:var(--rl);padding:1.6rem;display:flex;flex-direction:column;align-items:flex-start;gap:1rem;transition:border-color .2s,transform .2s}
-.membro:hover{border-color:var(--campo-l);transform:translateY(-3px)}
-.membro-av+div{display:flex;flex-direction:column;flex:1;width:100%}
-.membro-av{width:52px;height:52px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:1.2rem;color:white}
-.av-terra{background:var(--terra)}
-.av-campo{background:var(--campo)}
-.av-couro{background:var(--couro)}
-.av-cinza{background:var(--cinza)}
-.membro-role{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ouro);margin-bottom:.3rem}
-.membro-nome{font-size:15px;font-weight:700;color:var(--terra);margin-bottom:.4rem}
-.membro-bio{font-size:13px;color:var(--text2);font-weight:300;line-height:1.6}
-.membro-tag{display:inline-flex;align-items:center;gap:.3rem;margin-top:auto;font-size:10px;font-weight:600;color:var(--campo-l);background:var(--campo-bg);padding:3px 9px;border-radius:99px;border:1px solid rgba(61,122,84,.2)}
-.membro-bio{margin-bottom:1rem}
-
-/* CASE */
-.case-box{background:var(--terra-l);border:1px solid rgba(255,255,255,.06);border-radius:var(--rl);padding:2.5rem 3rem;margin-top:3rem}
-.case-q{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:rgba(245,239,224,.75);line-height:1.6;margin-bottom:1.5rem;padding-left:1.5rem;border-left:2px solid var(--campo-l)}
-.case-meta{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-.case-av{width:44px;height:44px;border-radius:50%;background:var(--campo);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:white}
-.case-nm{font-size:14px;font-weight:600;color:var(--creme)}
-.case-dt{font-size:12px;color:rgba(245,239,224,.35)}
-.case-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07)}
-.cs-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--ouro-xl);line-height:1;margin-bottom:.25rem}
-.cs-l{font-size:10px;color:rgba(245,239,224,.3);text-transform:uppercase;letter-spacing:.1em}
-
-/* CTA */
-.cta-s{background:linear-gradient(rgba(28,16,8,.70),rgba(28,16,8,.82)),var(--campo) url('assets/cta-campo.jpg') center/cover no-repeat;padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
-.cta-s::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 50% 0%,rgba(184,134,11,.12) 0%,transparent 65%)}
-.cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
-.cta-inner h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--creme);line-height:1.1;margin-bottom:1rem}
-.cta-inner h2 em{color:var(--ouro-xl);font-style:italic}
-.cta-inner p{font-size:1rem;color:rgba(245,239,224,.55);font-weight:300;margin-bottom:2.5rem;line-height:1.7}
-.cta-nota{font-size:12px;color:rgba(245,239,224,.3);margin-top:1.2rem;font-weight:300}
-
-/* FOOTER */
-footer{background:var(--terra);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,.05)}
-.footer-marca{display:flex;flex-direction:column}
-.footer-mimba{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:rgba(245,239,224,.6);letter-spacing:-.01em}
-.footer-mimba span{color:var(--ouro-xl)}
-.footer-by{font-size:10px;color:rgba(245,239,224,.2);margin-top:1px}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
-.footer-links a{font-size:12px;color:rgba(245,239,224,.3);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:rgba(245,239,224,.65)}
-.footer-copy{font-size:11px;color:rgba(245,239,224,.2)}
-
-/* FADE IN */
-.fi{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
-.fi.vis{opacity:1;transform:translateY(0)}
-
-@media(max-width:900px){
-  .pilares,.mods,.sangues-lay,.ctrl-lay,.efic-g,.planos-g,.case-stats{grid-template-columns:1fr}
-  .time-g{grid-template-columns:repeat(2,1fr)}
-  .hero-top{grid-template-columns:1fr;gap:2.5rem}
-  .hero-media img{max-height:360px}
-  .sec{padding:4.5rem 5%}
-  .hero{padding:7rem 5% 4rem}
-  .kgrid{grid-template-columns:1fr}
+.origin-pill:after{
+  content:'';
+  position:absolute;
+  inset:-5px;
+  border-radius:999px;
+  border:1px solid rgba(184,134,11,.10);
+  pointer-events:none;
 }
-@media(max-width:580px){
-  .time-g{grid-template-columns:1fr}
-  .hero-nome{font-size:clamp(4rem,18vw,7rem)}
-  .hero-ctas{flex-direction:column}
+@keyframes mimbaPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(184,134,11,.04);transform:translateY(0)}
+  50%{box-shadow:0 0 0 10px rgba(184,134,11,0);transform:translateY(-1px)}
 }
-</style>
-</head>
-<body>
+.brand-result{padding:24px 22px 22px}
+.brand-lockup{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.brand-lockup .mimba-mark{font:800 32px/1 Manrope,sans-serif;letter-spacing:-.06em;color:var(--ink)}
+.brand-lockup .mimba-mark .brand-dot{color:#b8860b}
+.brand-lockup .brand-tagline{margin-top:8px;font-size:14px;color:#655d54}
+.hero-copy{align-self:start;padding-top:4px}
+@media (prefers-reduced-motion:reduce){.origin-pill{animation:none}}
+@media(max-width:640px){.origin-pill{margin-bottom:34px}}
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#">
-    <div>
-      <div class="nav-wordmark"><span>Mimba</span></div>
-      <div class="nav-byline">by MimbaTech</div>
-    </div>
-  </a>
-  <div class="nav-links">
-    <a href="#pilares">Por que o Mimba</a>
-    <a href="#modulos">Funcionalidades</a>
-    <a href="#time">Time</a>
-    <a href="#planos">Planos</a>
+/* V1.0 — acesso do cliente */
+.client-access{background:rgba(255,255,255,.46);color:var(--ink);border-color:rgba(37,31,23,.16);margin-right:-14px}
+.client-access:hover{background:var(--paper);border-color:rgba(37,31,23,.28)}
+.logo{cursor:pointer}
+.price-choice.selected{border-color:var(--green);box-shadow:0 0 0 2px rgba(77,107,49,.2)}
+.price-choice.ai.selected{border-color:var(--green)}
+@media(max-width:760px){.client-access{margin-right:0}}
+</style></head><body><nav><div class="shell nav"><a href="#top" class="logo">Mimba<span class="dot">.</span></a><div class="links"><a href="#criar">Criar</a><a href="#cuidar">Cuidar</a><a href="#ia">Mimba IA</a><a href="#registro">Registro Vivo</a><a href="#quem-somos">Quem somos</a><a href="#planos">Planos</a><a class="btn client-access" href="https://app.mimba.com.br">Já sou cliente</a><a class="btn primary" href="#lancamento">Quero conhecer</a></div></div></nav><main id="top">
+<section class="hero"><div class="shell hero-grid"><div class="hero-copy"><div class="origin-pill"><strong>Guarani</strong><span><b>Mimba · mymba</b> · o animal sob cuidado, o ser que se cria</span><a href="#quem-somos">Por que Mimba? →</a></div><div class="eyebrow">Inteligência para quem cria</div><h1 class="title">Sua cabanha na palma da mão.</h1><p class="lead">Tudo sobre seus Crioulos. Para cuidar melhor de cada animal, planejar os próximos passos e pensar o futuro da sua criação.</p><div class="actions"><a class="btn primary" href="#criar">Quero conhecer o Mimba</a><a class="btn light" href="#manada">Ver como funciona</a></div><div class="launch">Web · lançamento oficial 28.08.2026</div></div><div class="hero-product"><div class="product-frame demo manada-demo"><div class="demo-bar"><b>Mimba.</b><span>Animais</span><i>24 ativos</i></div><div class="demo-stats"><b>24<small>Animais</small></b><b>13<small>Fêmeas</small></b><b>11<small>Machos</small></b><b>3<small>A confirmar</small></b></div><div class="horse-grid"><article><span class="horse-avatar">CM</span><b>Corcel da Mãe de Deus</b><small>B688473 · Pista Morfologia</small><em>Projeto ativo</em></article><article><span class="horse-avatar">IM</span><b>Indiana da Mãe de Deus</b><small>Matriz · Reprodução</small><em>Gestante</em></article><article><span class="horse-avatar">CH</span><b>Chanel da Mãe de Deus</b><small>Fêmea · Em preparação</small><em>A confirmar</em></article></div></div><div class="phone-crop demo phone-demo"><div class="phone-head">Mimba.<small>Registro Vivo</small></div><div class="animal-orb">C</div><b>Corcel da Mãe de Deus</b><small>SBB B688473</small><div class="mini-row"><span>Saúde</span><strong>Em dia</strong></div><div class="mini-row"><span>Projeto</span><strong>Morfologia</strong></div><div class="mini-row"><span>Próximo evento</span><strong>18 dias</strong></div></div><div class="float f1"><span class="eyebrow">Próximo evento</span><b>3 animais planejados</b>Sanidade conferida por data</div><div class="float f2"><span class="eyebrow">Reprodução</span><b>Gestações ativas</b>Acompanhe até o nascimento</div></div></div></section>
+<section><div class="shell"><div class="head"><div class="eyebrow">Tudo em um só lugar</div><h2 class="title">Criar é cuidar de muita coisa ao mesmo tempo.</h2><p>Animais, documentos, reprodução, nutrição, eventos, saúde, manejo e equipe. O Mimba transforma informação espalhada em uma visão única de cada animal e da cabanha inteira.</p></div><div class="proof"><div class="card"><div class="eyebrow">Manada</div><h3>Cada animal. Toda a história.</h3><p>Ficha viva, genealogia, situação atual, projetos e próximos passos.</p><div class="big-num">24</div></div><div class="card"><div class="eyebrow">Hoje</div><h3>O que pede atenção.</h3><p>Vencimentos, manejos e decisões em um só lugar.</p></div><div class="card"><div class="eyebrow">Agenda</div><h3>O que vem depois.</h3><p>Eventos, reprodução e procedimentos planejados.</p></div></div></div></section>
+<section class="about" id="quem-somos"><div class="shell"><div class="about-grid"><div class="about-copy"><div class="eyebrow">Quem somos</div><h2 class="title">Nosso nome nasce da essência de criar e cuidar.</h2><p><b>Mymba</b>, do Guarani, carrega uma ideia simples e profunda: o animal que está sob nosso cuidado, aquele que criamos.</p><p>Foi daí que nasceu o nome <b>Mimba</b>. Porque criar um Cavalo Crioulo nunca foi apenas registrar um animal. É escolher um cruzamento, acompanhar uma gestação, cuidar de um potro, preparar para uma prova, observar sua evolução e imaginar até onde ele pode chegar.</p><p>É conhecimento que passa entre gerações. É campo, família, tradição e paixão pelo cavalo. Mas criar também mudou: a criação se profissionalizou, as decisões envolvem mais informação e a tecnologia abriu novas possibilidades para cuidar e planejar.</p><div class="about-meaning"><strong>Mimba é o animal sob cuidado. O ser que se cria.</strong><span>Um nome que conecta aquilo que sempre esteve na essência da criação com as novas formas de fazer a cabanha evoluir.</span></div></div><div class="brand-equation"><div class="brand-pillar"><div class="symbol">T</div><h3>Tradição</h3><p>O conhecimento, a cultura, a história e a essência de quem cria Cavalos Crioulos.</p></div><div class="brand-plus">+</div><div class="brand-pillar"><div class="symbol">P</div><h3>Profissionalização</h3><p>Mais gestão, controle e informação para uma criação que precisa evoluir sem perder sua identidade.</p></div><div class="brand-plus">+</div><div class="brand-pillar"><div class="symbol">IA</div><h3>Tecnologia e inteligência</h3><p>Dados e IA ampliando a capacidade de enxergar, planejar, comparar e decidir.</p></div><div class="brand-result">
+  <div class="brand-lockup" aria-label="Mimba. Inteligência para quem cria.">
+    <div class="mimba-mark">Mimba<span class="brand-dot">.</span></div>
+    <div class="brand-tagline">Inteligência para quem cria.</div>
   </div>
-  <div class="nav-actions">
-    <a class="nav-login" href="https://app.mimba.com.br">Já sou cliente</a>
-    <a class="nav-cta" href="#planos">Começar agora</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-tex"></div>
-  <div class="hero-inner">
-    <div class="hero-top">
-      <div class="hero-copy">
-        <div class="hero-etim">
-          <span class="etim-pill">Guarani</span>
-          <span class="etim-txt"><strong>Mimba</strong> · mymba · o animal sob cuidado, o ser que se cria</span>
-        </div>
-        <div class="hero-nome">
-          Mimba<em>.</em>
-        </div>
-        <p class="hero-titulo">A inteligência da sua cabanha.</p>
-        <p class="hero-sub">O histórico de cada animal, a genealogia da sua manada até a 5ª geração e o controle completo do dia a dia — em um sistema feito por quem cria crioulo, para quem cria crioulo.</p>
-        <div class="hero-ctas">
-          <a class="btn-ouro" href="/assinar">Contratar agora →</a>
-          <a class="btn-ghost" href="#modulos">Ver funcionalidades</a>
-        </div>
-      </div>
-      <figure class="hero-media">
-        <img src="assets/hero-crioulo.jpg" width="1600" height="1067" alt="Criadores de cavalo crioulo em traje gaúcho tradicional numa cabanha, com um cavalo ao fundo">
-      </figure>
-    </div>
-    <div class="hero-stats">
-      <div><div class="hstat-n"><em>ABCCC</em></div><div class="hstat-l">Integrado nativamente</div></div>
-      <div><div class="hstat-n">5ª <em>ger.</em></div><div class="hstat-l">Genealogia automática</div></div>
-      <div><div class="hstat-n">11</div><div class="hstat-l">Módulos completos</div></div>
-      <div><div class="hstat-n">&lt;2<em>min</em></div><div class="hstat-l">Sua cabanha no ar</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="sep"></div>
-
-<!-- PILARES -->
-<section class="sec" id="pilares">
-<div class="sec-in">
-  <div class="eyebrow">Por que o Mimba</div>
-  <h2 class="stit">Tradição não é o passado.<br>É o que você constrói para durar.</h2>
-  <p class="ssub">O criador crioulo acumula décadas de conhecimento sobre linhagem, saúde e reprodução dos animais. O Mimba existe para que esse conhecimento não fique só na cabeça do cabanheiro — e para que cada decisão seja tomada com dados reais.</p>
-  <div class="pilares">
-    <div class="pilar p1 fi">
-      <div class="pilar-icon">🧬</div>
-      <h3 class="pilar-titulo">Inteligência da manada</h3>
-      <p class="pilar-txt">O histórico da sua criação associado aos resultados da raça. Planejamento genético com base no que sua manada realmente tem — não no que você lembra que tem.</p>
-      <ul class="pilar-list">
-        <li>Genealogia automática até a 5ª geração via ABCCC</li>
-        <li>Rankings de afixos, pais e avós de toda a manada</li>
-        <li>Decisão de cruzamento com dados reais em mãos</li>
-        <li>Histórico completo de cada animal desde o nascimento</li>
-      </ul>
-    </div>
-    <div class="pilar p2 fi">
-      <div class="pilar-icon">📱</div>
-      <h3 class="pilar-titulo">Controle na palma da mão</h3>
-      <p class="pilar-txt">Informação em tempo real acessível de qualquer dispositivo. O cabanheiro registra no celular em campo. O veterinário acessa do computador. O criador acompanha de onde estiver.</p>
-      <ul class="pilar-list">
-        <li>Alertas automáticos de vacinas e exames a vencer</li>
-        <li>Dashboard com situação completa da cabanha</li>
-        <li>Verificação sanitária antes de cada evento ABCCC</li>
-        <li>Linha do tempo visual com fotos por animal</li>
-      </ul>
-    </div>
-    <div class="pilar p3 fi">
-      <div class="pilar-icon">⚡</div>
-      <h3 class="pilar-titulo">Eficiência operacional</h3>
-      <p class="pilar-txt">Menos tempo buscando informação, menos perdas por descuido, menos despesas evitáveis. Controles precisos que eliminam os erros de quem gerencia no improviso.</p>
-      <ul class="pilar-list">
-        <li>Zero animal vencido entrando em prova</li>
-        <li>Custo real por animal — nutrição, saúde e eventos</li>
-        <li>Estoque alimentado pelo consumo automaticamente</li>
-        <li>Histórico permanente na nuvem — zero dado perdido</li>
-      </ul>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- MÓDULOS -->
-<section class="sec sec-creme" id="modulos">
-<div class="sec-in">
-  <div class="eyebrow campo-e">11 módulos integrados</div>
-  <h2 class="stit">Um sistema completo.<br>Tudo conectado, tudo em um lugar.</h2>
-  <p class="ssub">O que você registra na saúde aparece na linha do tempo. O consumo da nutrição deduz do estoque. Cada módulo conversa com os outros.</p>
-  <div class="mods">
-    <div class="mod fi"><div class="mod-ic">🐎</div><div><div class="mod-n">Cadastro de Animais</div><div class="mod-d">Ficha completa preenchida automaticamente pelo SBB via ABCCC. Histórico de situação, estágio, pelagem e genealogia com filtros avançados.</div><span class="mod-tag mt-a">ABCCC</span></div></div>
-    <div class="mod fi"><div class="mod-ic">💉</div><div><div class="mod-n">Saúde — Vacinas, Exames e Vermifugação</div><div class="mod-d">Kanban visual por status de vencimento. Protocolos rápidos de Influenza, Tétano e AIE. Alertas com 30 dias de antecedência. Histórico completo por animal.</div><span class="mod-tag mt-g">Alertas automáticos</span></div></div>
-    <div class="mod fi"><div class="mod-ic">🍀</div><div><div class="mod-n">Reprodução e Gestações</div><div class="mod-d">Coberturas por tipo: Natural, IA, IATF, TE e PIV. Barra de progresso da gestação com parto previsto. Alerta de leptospirose para éguas prenhes.</div><span class="mod-tag mt-g">Todos os tipos</span></div></div>
-    <div class="mod fi"><div class="mod-ic">🏆</div><div><div class="mod-n">Eventos e Provas ABCCC</div><div class="mod-d">Morfologias, freio de ouro, paleteadas e provas funcionais. Verificação sanitária automática — vacinas e exames de cada participante conferidos em um clique.</div><span class="mod-tag mt-a">Verificação automática</span></div></div>
-    <div class="mod fi"><div class="mod-ic">🧬</div><div><div class="mod-n">Análise de Sangues</div><div class="mod-d">Consulta automática da 5ª geração de cada animal na ABCCC. Rankings de afixos, pais, avós paternos e maternos. Único no mercado equino brasileiro.</div><span class="mod-tag mt-e">Exclusivo</span></div></div>
-    <div class="mod fi"><div class="mod-ic">📸</div><div><div class="mod-n">Linha do Tempo com Fotos</div><div class="mod-d">Nascimento, crias, vacinas, eventos e fotos de projetos nutricionais. O valor do animal documentado da primeira à última foto — patrimônio permanente da cabanha.</div><span class="mod-tag mt-g">Fotos e vídeos</span></div></div>
-    <div class="mod fi"><div class="mod-ic">🌿</div><div><div class="mod-n">Nutrição e Suplementação</div><div class="mod-d">Planos individuais por animal com projetos e fotos. Consumo estimado alimenta automaticamente o estoque — nada cadastrado duas vezes.</div><span class="mod-tag mt-g">Integrado ao estoque</span></div></div>
-    <div class="mod fi"><div class="mod-ic">📦</div><div><div class="mod-n">Estoque e Insumos</div><div class="mod-d">Medicamentos, suplementos e forragem com alertas de mínimo. Movimentações integradas ao consumo nutricional e veterinário.</div><span class="mod-tag mt-g">Alertas de mínimo</span></div></div>
-    <div class="mod fi"><div class="mod-ic">💰</div><div><div class="mod-n">Financeiro</div><div class="mod-d">Receitas e despesas por categoria. Custo por animal consolidando nutrição, saúde e eventos. Controle de pendências e fluxo de caixa da cabanha.</div><span class="mod-tag mt-g">Custo por animal</span></div></div>
-    <div class="mod fi"><div class="mod-ic">📐</div><div><div class="mod-n">Biometria e Medidas</div><div class="mod-d">Peso, cernelha, tórax, canela e escore corporal com histórico de evolução. Acompanhamento de confirmação por medição e idade.</div><span class="mod-tag mt-g">Evolução histórica</span></div></div>
-    <div class="mod fi"><div class="mod-ic">👥</div><div><div class="mod-n">Multi-usuário com Perfis</div><div class="mod-d">Administrador, Veterinário e Cabanheiro com permissões distintas. Cada um acessa apenas o que é da sua responsabilidade.</div><span class="mod-tag mt-g">3 perfis de acesso</span></div></div>
-  </div>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- ANÁLISE DE SANGUES -->
-<section class="sec sec-alt" id="sangues" style="background:var(--terra)">
-<div class="sec-in">
-  <div class="eyebrow" style="color:var(--ouro-l)">Funcionalidade exclusiva</div>
-  <h2 class="stit-l">Análise de Sangues:<br>a manada que você construiu, revelada.</h2>
-  <div class="sangues-lay" style="margin-top:3rem">
-    <div>
-      <div class="rbox">
-        <div class="rtit">🏠 Afixos mais presentes — sua manada</div>
-        <div class="ri"><span class="rpos">1º</span><span class="rnome">SANTA EDWIGES</span><div class="rbw"><div class="rb" style="width:100%"></div></div><span class="rcnt">14x</span></div>
-        <div class="ri"><span class="rpos">2º</span><span class="rnome">JUNCO</span><div class="rbw"><div class="rb" style="width:78%"></div></div><span class="rcnt">11x</span></div>
-        <div class="ri"><span class="rpos">3º</span><span class="rnome">ITAPORORÓ</span><div class="rbw"><div class="rb" style="width:50%;background:var(--campo)"></div></div><span class="rcnt">7x</span></div>
-        <div class="ri"><span class="rpos">4º</span><span class="rnome">RECONQUISTA</span><div class="rbw"><div class="rb" style="width:43%;background:var(--couro)"></div></div><span class="rcnt">6x</span></div>
-      </div>
-      <div class="rbox">
-        <div class="rtit">👨 Principais pais da manada</div>
-        <div class="ri"><span class="rpos">1º</span><span class="rnome">QUARTO DE RONDA DA REPÚBLICA</span><div class="rbw"><div class="rb" style="width:100%"></div></div><span class="rcnt">8x</span></div>
-        <div class="ri"><span class="rpos">2º</span><span class="rnome">GOLPE SECO DO ITAÓ</span><div class="rbw"><div class="rb" style="width:62%"></div></div><span class="rcnt">5x</span></div>
-        <div class="ri"><span class="rpos">3º</span><span class="rnome">DESAFIO DE SANTA EDWIGES</span><div class="rbw"><div class="rb" style="width:50%;background:var(--campo)"></div></div><span class="rcnt">4x</span></div>
-        <div class="ri"><span class="rpos">4º</span><span class="rnome">FESTEIRO DO ITAPORORÓ</span><div class="rbw"><div class="rb" style="width:37%;background:var(--couro)"></div></div><span class="rcnt">3x</span></div>
-      </div>
-    </div>
-    <div>
-      <p class="claim">"Saiba exatamente quais sangues dominam sua manada — e quais faltam para o cruzamento que você planeja."</p>
-      <ul class="sfeat">
-        <li>Consulta automática da <strong>5ª geração de cada animal</strong> cadastrado com SBB — até 31 ancestrais por cabeça</li>
-        <li>Rankings de <strong>afixos, pais, avós paternos e maternos</strong> — o retrato genético real da sua criação</li>
-        <li>Decisão de cruzamento baseada no que sua manada realmente tem, não no que você lembra que tem</li>
-        <li>Cache inteligente: consulta uma vez, resultado instantâneo depois</li>
-        <li><strong>Único sistema do mercado equino brasileiro</strong> com essa funcionalidade integrada automaticamente à ABCCC</li>
-      </ul>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- CONTROLE -->
-<section class="sec" id="controle">
-<div class="sec-in">
-  <div class="eyebrow campo-e">Controle na palma da mão</div>
-  <h2 class="stit">A cabanha inteira visível<br>em um acesso.</h2>
-  <div class="ctrl-lay" style="margin-top:3rem">
-    <div class="kboard">
-      <div class="ktit">Saúde · Vacinas · Visão geral</div>
-      <div class="kgrid">
-        <div><div class="klbl k-ok">Em dia</div><div class="kcard"><div class="kc-n">CORCEL DA MÃE DE DEUS</div><div class="kc-i">Influenza · nov 2026</div></div><div class="kcard"><div class="kc-n">CHANEL DA MÃE DE DEUS</div><div class="kc-i">AIE · ago 2026</div></div><div class="kcard"><div class="kc-n">SESMARIA DA RAUNA</div><div class="kc-i">Tétano · set 2026</div></div></div>
-        <div><div class="klbl k-att">Atenção (30d)</div><div class="kcard"><div class="kc-n">GOLPE SECO DO ITAÓ</div><div class="kc-i">Influenza · 18 ago</div></div><div class="kcard"><div class="kc-n">DEMASIA TUPAMBAÉ</div><div class="kc-i">AIE · 22 ago</div></div></div>
-        <div><div class="klbl k-venc">Vencido</div><div class="kcard"><div class="kc-n">TARDE DE SOL CHARRUA</div><div class="kc-i">Influenza · venceu</div></div></div>
-      </div>
-      <div class="kalert"><span>⚠️</span><span>TARDE DE SOL CHARRUA — Influenza vencida. Verificar antes do próximo evento.</span></div>
-    </div>
-    <div class="pontos">
-      <div class="ponto fi"><div class="pton-ic">🔔</div><div><div class="pton-t">Alertas antes do problema</div><div class="pton-d">O sistema avisa com 30 dias de antecedência. Nunca mais descobrir na morfologia que o animal está irregular.</div></div></div>
-      <div class="ponto fi"><div class="pton-ic">📱</div><div><div class="pton-t">De qualquer dispositivo, em tempo real</div><div class="pton-d">Cabanheiro registra do celular em campo. Veterinário acessa do computador. Criador acompanha de onde estiver. Todos veem a mesma informação.</div></div></div>
-      <div class="ponto fi"><div class="pton-ic">✅</div><div><div class="pton-t">Verificação antes de cada prova</div><div class="pton-d">Monte a lista de participantes e o Mimba verifica automaticamente vacinas, AIE e exames. Em um clique, você sabe quem está apto.</div></div></div>
-      <div class="ponto fi"><div class="pton-ic">📊</div><div><div class="pton-t">Dashboard de toda a cabanha</div><div class="pton-d">Animais ativos, gestações em curso, eventos próximos e pendências sanitárias — tudo visível na tela inicial.</div></div></div>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- EFICIÊNCIA -->
-<section class="sec sec-creme" id="eficiencia">
-<div class="sec-in">
-  <div class="eyebrow campo-e">Eficiência operacional</div>
-  <h2 class="stit">Menos perdas. Menos tempo.<br>Mais resultado.</h2>
-  <p class="ssub">Cada hora gasta buscando informação, cada animal vencido em prova, cada gasto indevido por falta de controle — o Mimba elimina.</p>
-  <div class="efic-g">
-    <div class="efic fi"><div class="efic-n">0</div><div class="efic-t">Planilhas em paralelo</div><div class="efic-d">Tudo em um único sistema — vacinas, gestações, eventos, estoque, financeiro e genealogia. A informação não se perde entre arquivos.</div></div>
-    <div class="efic fi"><div class="efic-n">100%</div><div class="efic-t">SBBs integrados à ABCCC</div><div class="efic-d">Nome, sexo, nascimento, pelagem e genealogia preenchidos automaticamente. Sem redigitar o que já está registrado na ABCCC.</div></div>
-    <div class="efic fi"><div class="efic-n">5ª</div><div class="efic-t">Geração na palma da mão</div><div class="efic-d">Genealogia completa de toda a manada disponível automaticamente. Decisão de cruzamento em minutos, não em horas de pesquisa manual.</div></div>
-    <div class="efic fi"><div class="efic-n">&lt;2min</div><div class="efic-t">Do pagamento ao sistema pronto</div><div class="efic-d">Contratou, pagou e já recebe o acesso. Sua cabanha ativa em menos de 2 minutos. Sem instalação, sem configuração.</div></div>
-    <div class="efic fi"><div class="efic-n">∞</div><div class="efic-t">Histórico permanente</div><div class="efic-d">Backup automático diário na nuvem. Quando alguém sai da equipe, o conhecimento fica na cabanha.</div></div>
-    <div class="efic fi"><div class="efic-n">11</div><div class="efic-t">Módulos em um sistema</div><div class="efic-d">Saúde, reprodução, eventos, estoque, financeiro, nutrição, genealogia, biometria, linha do tempo, multi-usuário e análise de sangues. Todos integrados.</div></div>
-  </div>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- PLANOS -->
-<section class="sec" id="planos">
-<div class="sec-in">
-  <div class="eyebrow">Planos Mimba Gestão Crioulos</div>
-  <h2 class="stit">Escolha o tamanho<br>da sua operação.</h2>
-  <p class="ssub">Todos os planos incluem os 11 módulos completos, integração ABCCC e análise de sangues. Você paga proporcional ao porte da sua cabanha.</p>
-  <div class="planos-g">
-    <div class="plano fi">
-      <div class="ph"><div class="p-nome">Potro</div><div class="p-preco"><sup>R$</sup>97<sub>/mês</sub></div><div class="p-limite">Até 15 animais · 3 usuários</div></div>
-      <div class="pb"><ul class="pf"><li>11 módulos completos</li><li>Integração ABCCC (SBB automático)</li><li>Análise de sangues 5ª geração</li><li>Linha do tempo com fotos</li><li>Alertas automáticos de saúde</li><li>3 usuários incluídos</li><li>Suporte por e-mail</li><li class="off">Relatórios PDF</li><li class="off">Logo da cabanha no sistema</li></ul></div>
-      <a class="p-cta" href="/assinar?plano=Potro">Contratar Potro</a>
-    </div>
-    <div class="plano dest fi">
-      <div class="ph"><div class="p-badge">mais escolhido</div><div class="p-nome">Arreio</div><div class="p-preco"><sup>R$</sup>197<sub>/mês</sub></div><div class="p-limite">Até 40 animais · 8 usuários</div></div>
-      <div class="pb"><ul class="pf"><li>Tudo do plano Potro</li><li>Até 40 animais ativos</li><li>Até 8 usuários</li><li>Logo da cabanha no sistema</li><li>Relatórios exportáveis PDF</li><li>Suporte prioritário</li><li>Onboarding assistido</li><li class="off">Cores personalizadas</li><li class="off">API para integrações</li></ul></div>
-      <a class="p-cta" href="/assinar?plano=Arreio">Contratar Arreio</a>
-    </div>
-    <div class="plano fi">
-      <div class="ph"><div class="p-nome">Tropilha</div><div class="p-preco"><sup>R$</sup>397<sub>/mês</sub></div><div class="p-limite">Animais ilimitados · Usuários ilimitados</div></div>
-      <div class="pb"><ul class="pf"><li>Tudo do plano Arreio</li><li>Animais e usuários ilimitados</li><li>Cores da sua marca no sistema</li><li>API para integrações externas</li><li>Suporte via WhatsApp</li><li>Treinamento da equipe</li><li>SLA de disponibilidade garantido</li></ul></div>
-      <a class="p-cta" href="/assinar?plano=Tropilha">Contratar Tropilha</a>
-    </div>
-  </div>
-  <p class="planos-nota">Cartão de crédito · PIX · Boleto bancário · Recorrência automática · Cancele quando quiser</p>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- TIME -->
-<section class="sec sec-creme" id="time">
-<div class="sec-in">
-  <div class="eyebrow campo-e">O time</div>
-  <h2 class="stit">Feito por quem vive<br>o universo crioulo.</h2>
-  <p class="ssub">A MimbaTech nasce da combinação de tecnologia, experiência de campo e presença no mercado crioulo. Um time com acesso direto ao criador e à ABCCC.</p>
-  <div class="time-g">
-    <div class="membro fi">
-      <div class="membro-av av-terra">LM</div>
-      <div>
-        <div class="membro-role">Fundador & Diretor · MimbaTech</div>
-        <div class="membro-nome">Luciano Luís Mantelli</div>
-        <div class="membro-bio">Multi-empreendedor nos segmentos de tecnologia, consultoria de negócios, agro, saúde e educação. Apaixonado pelo campo, proprietário da Cabanha Mãe de Deus — o case real onde o Mimba foi concebido, desenvolvido e validado.</div>
-        <span class="membro-tag">🐎 Cabanha Mãe de Deus · Tupanciretã/RS</span>
-      </div>
-    </div>
-    <div class="membro fi">
-      <div class="membro-av av-campo">TP</div>
-      <div>
-        <div class="membro-role">Frente de Mercado · MimbaTech</div>
-        <div class="membro-nome">Thiago Andreolla Persici</div>
-        <div class="membro-bio">Técnico credenciado ABCCC, comentarista e supervisor técnico em provas esportivas e funcionais. Voz reconhecida no universo crioulista, co-apresentador do podcast La Ruta. Sediado em Uruguaiana/RS, é o elo direto entre o Mimba e o mercado de cabanhas.</div>
-        <span class="membro-tag">🎙 Podcast La Ruta · ABCCC</span>
-      </div>
-    </div>
-    <div class="membro fi">
-      <div class="membro-av av-couro">PP</div>
-      <div>
-        <div class="membro-role">Tech Lead · MimbaTech</div>
-        <div class="membro-nome">Pedro Portella Possamai</div>
-        <div class="membro-bio">Engenheiro de software e arquiteto de soluções, responsável pela execução técnica do roadmap. Lidera o desenvolvimento da plataforma Mimba — da arquitetura multi-tenant à integração com a ABCCC.</div>
-        <span class="membro-tag">⚙️ Arquitetura & Desenvolvimento</span>
-      </div>
-    </div>
-    <div class="membro fi">
-      <div class="membro-av av-cinza">EE</div>
-      <div>
-        <div class="membro-role">Relações Públicas · MimbaTech</div>
-        <div class="membro-nome">Eliza Eberts</div>
-        <div class="membro-bio">Responsável pela presença digital da MimbaTech, estratégia de redes sociais e planejamento do lançamento. Coordena eventos e ações de visibilidade da marca Mimba junto ao mercado crioulista.</div>
-        <span class="membro-tag">📣 Redes Sociais & Eventos</span>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- CASE -->
-<section class="sec" style="background:var(--terra)">
-<div class="sec-in">
-  <div class="eyebrow" style="color:var(--ouro-l)">Case real</div>
-  <h2 class="stit-l">Em produção na<br>Cabanha Mãe de Deus.</h2>
-  <p class="ssub-l">O Mimba foi concebido e validado em uma cabanha crioula real de Tupanciretã/RS. Tudo que você vê aqui existe e funciona hoje.</p>
-  <div class="case-box">
-    <p class="case-q">"Com o sistema, saímos de planilhas espalhadas para um controle centralizado de tudo — vacinas, gestações, eventos e análise de sangue da manada. Em um acesso, sei exatamente o status de cada animal."</p>
-    <div class="case-meta">
-      <div class="case-av">MD</div>
-      <div><div class="case-nm">Cabanha Mãe de Deus</div><div class="case-dt">Cavalos Crioulos ABCCC · Tupanciretã, RS · em uso desde 2025</div></div>
-    </div>
-    <div class="case-stats">
-      <div><div class="cs-n">31</div><div class="cs-l">Animais registrados</div></div>
-      <div><div class="cs-n">100%</div><div class="cs-l">SBBs na ABCCC</div></div>
-      <div><div class="cs-n">11</div><div class="cs-l">Módulos em uso</div></div>
-      <div><div class="cs-n">0</div><div class="cs-l">Planilhas ainda em uso</div></div>
-    </div>
-  </div>
-</div>
-</section>
-
-<div class="sep"></div>
-
-<!-- CTA FINAL -->
-<div class="cta-s">
-  <div class="cta-inner">
-    <h2>Sua cabanha merece<br><em>mais do que uma planilha.</em></h2>
-    <p>Do pagamento ao sistema pronto em menos de 2 minutos. Integração ABCCC, análise de sangues e 11 módulos completos — incluídos em qualquer plano Mimba.</p>
-    <a class="btn-ouro" style="display:inline-flex;margin:0 auto" href="#planos">Ver planos e contratar →</a>
-    <p class="cta-nota">Cartão · PIX · Boleto · Cancele quando quiser · Suporte em português · mimba.com.br</p>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-marca">
-    <div class="footer-mimba"><span>Mimba</span> Gestão Crioulos</div>
-    <div class="footer-by">Uma solução MimbaTech</div>
-  </div>
-  <div class="footer-links">
-    <a href="#modulos">Funcionalidades</a>
-    <a href="#planos">Planos</a>
-    <a href="#time">Time</a>
-    <a href="mailto:contato@mimba.com.br">Contato</a>
-    <a href="#">Termos de uso</a>
-    <a href="#">Privacidade</a>
-  </div>
-  <div class="footer-copy">© 2026 MimbaTech. Todos os direitos reservados.</div>
-</footer>
-
+</div></div><div class="about-closing">Não queremos transformar a essência de criar cavalos. Queremos dar a quem cria novas formas de cuidar, decidir e sonhar.</div></div></div></section><section class="product-section" id="manada"><div class="shell split"><div class="copy"><div class="eyebrow">Sua manada</div><h2 class="title">Cada animal. Toda a história.</h2><p>Da genealogia ao último manejo. Da vacina ao projeto nutricional. Da preparação para uma prova à história que aquele animal está construindo.</p><div class="bullets"><div class="bullet">Importação e atualização de dados ABCCC</div><div class="bullet">Situação, ciclo, estágio e confirmação</div><div class="bullet">Saúde, nutrição, eventos, medidas e linha do tempo</div></div></div><div class="shot demo manada-wide"><div class="demo-bar"><b>Mimba.</b><span>Sua manada</span><i>Buscar animal...</i></div><div class="demo-stats"><b>24<small>Ativos</small></b><b>13<small>Fêmeas</small></b><b>11<small>Machos</small></b><b>7<small>A confirmar</small></b></div><div class="horse-list"><div><span class="horse-avatar">CM</span><p><b>Corcel da Mãe de Deus</b><small>B688473 · Macho · Pista Morfologia</small></p><em>Ativo</em></div><div><span class="horse-avatar">IM</span><p><b>Indiana da Mãe de Deus</b><small>Matriz · Gestação ativa</small></p><em>Reprodução</em></div><div><span class="horse-avatar">CH</span><p><b>Chanel da Mãe de Deus</b><small>20 meses · Em preparação</small></p><em>Confirmar</em></div></div></div></div></section>
+<section class="dark" id="criar"><div class="shell"><div class="head"><div class="eyebrow">O próximo potro começa muito antes de nascer</div><h2 class="title">Todo criador já imaginou o próximo grande cavalo.</h2><p>Escolher uma égua. Pensar o garanhão. Estudar os sangues. Imaginar o que aquele cruzamento pode produzir. O Mimba coloca informação e inteligência ao lado de uma das decisões mais apaixonantes da criação.</p></div><div class="repro-grid"><div><div class="dream">Planeje o cruzamento. Acompanhe a reprodução. Siga a gestação até o nascimento.</div><div class="flow"><span>ESCOLHA A ÉGUA</span><span>QUEM COMBINA COM ELA?</span><span>ACASALAMENTO</span><span>GESTAÇÃO</span><span>PARTO</span></div><div class="match"><div class="eyebrow">Quem combina com ela?</div><div class="match-row"><div class="score">9.2</div><div><b>Opção 1</b><small> · diversidade e genealogia em análise</small></div><span class="pill">Ver dossiê</span></div><div class="match-row"><div class="score">8.7</div><div><b>Opção 2</b><small> · compare possibilidades</small></div><span class="pill">Comparar</span></div></div><p style="color:#c4c5bd;line-height:1.6">A decisão continua sendo sua. O Mimba amplia o olhar com genealogia, consanguinidade, diversidade de sangue e contexto disponível.</p></div><div class="real-ui demo repro-demo"><div class="demo-bar"><b>Planejamento Reprodutivo</b><span>Ciclo 2026/27</span></div><div class="mare-card"><small>MATRIZ SELECIONADA</small><b>Indiana da Mãe de Deus</b><span>Quem combina com ela?</span></div><div class="sire"><strong>9.2</strong><p><b>Fonte A</b><small>Baixo parentesco · boa diversidade</small></p><em>1º</em></div><div class="sire"><strong>8.7</strong><p><b>Fonte B</b><small>Genealogia compatível · saldo disponível</small></p><em>2º</em></div><div class="bloodline">LINHAGENS <span>→</span> CONFLUÊNCIA <span>→</span> DOSSIÊ SELADO</div></div></div></div></section>
+<section class="agent" id="ia"><div class="shell agent-grid"><div class="copy"><div class="eyebrow">Converse com sua cabanha</div><h2 class="title">Pergunte ao Mimba.</h2><p>O agente acessa o contexto da cabanha e a inteligência estatística disponível no Mimba Lab. Você pergunta como fala. O Mimba procura a resposta onde os dados vivem.</p><div class="prompt-list"><div class="prompt">“Quais animais estão com AIE vencendo antes dos próximos eventos?”</div><div class="prompt">“Quando nasce o próximo potro?”</div><div class="prompt">“Quais pais tiveram mais finalistas na Expointer 2026?”</div><div class="prompt">“Qual mãe mais colocou filhos campeões do Freio de Ouro?”</div></div><div class="labline">MIMBA LAB · MORFOLOGIA EXPOINTER · FINAL FREIO DE OURO · DOMA DE OURO</div></div><div class="chat"><div class="chat-inner"><div class="chat-top"><div><a class="logo" href="#top" aria-label="Voltar ao topo">Mimba<span class="dot">.</span></a><small>AGENTE DA SUA CABANHA</small></div><b>M.</b></div><div class="bubble user">Quais animais estão com AIE vencendo antes dos próximos eventos?</div><div class="bubble bot">Encontrei animais que precisam de atenção antes das saídas planejadas. Posso listar cada um com evento e validade.</div><div class="bubble user">E quais pais tiveram mais finalistas na Expointer 2026?</div><div class="bubble bot">Vou consultar os dados disponíveis do Mimba Lab e posso também relacionar essas linhagens com as matrizes da sua cabanha.</div></div></div></div></section>
+<section id="eventos"><div class="shell"><div class="head"><div class="eyebrow">Antes de carregar o caminhão</div><h2 class="title">Seu cavalo está pronto para a prova. E para sair da cabanha?</h2><p>Meses de alimentação, treinamento, preparação, inscrição e viagem não podem ser perdidos por uma falha administrativa na última hora.</p></div><div class="story">Um exame vencido não pode colocar todo esse investimento a perder.</div><div class="event-panel"><div class="event-head"><span class="mono">EVENTO · 18 DIAS</span><span class="mono">3 ANIMAIS</span></div><div class="events"><div class="event"><div class="eyebrow">Corcel da Mãe de Deus</div><h3>Pronto para sair</h3><div class="check ok"><span>Vacinas</span><b>✓ em dia</b></div><div class="check ok"><span>AIE</span><b>✓ válido no evento</b></div></div><div class="event"><div class="eyebrow">Chanel da Mãe de Deus</div><h3>Atenção antes da saída</h3><div class="check ok"><span>Vacinas</span><b>✓ em dia</b></div><div class="check warn"><span>AIE</span><b>vence antes do evento</b></div></div><div class="event"><div class="eyebrow">Animal planejado</div><h3>Providenciar</h3><div class="check warn"><span>Exame</span><b>sem validade suficiente</b></div><div class="check ok"><span>Vacinas</span><b>✓ em dia</b></div></div></div></div><p style="font-size:11px;color:#766e64;margin-top:13px">O Mimba apoia o controle dos registros e da preparação sanitária. Não emite GTA nem substitui exigências oficiais.</p></div></section>
+<section><div class="shell"><div class="head"><div class="eyebrow">Registro da raça</div><h2 class="title">Quem está chegando na hora de confirmar?</h2><p>Acompanhe a manada por estágio de confirmação e enxergue cedo quem merece atenção.</p></div><div class="confirm demo confirm-flow"><div><strong>7</strong><b>A confirmar</b><small>Manada jovem</small></div><span>→</span><div><strong>2</strong><b>Em preparação</b><small>Acompanhando evolução</small></div><span>→</span><div><strong>3</strong><b>Aptos</b><small>Dentro da referência</small></div><span>→</span><div><strong>12</strong><b>Confirmados</b><small>Histórico preservado</small></div></div><div class="confirm-detail"><div class="kpi"><div class="eyebrow">Evolução biométrica</div><strong>1,34 m</strong><p>Cernelha aos 20 meses, com referência, histórico de medidas e projeção para apoiar o acompanhamento.</p></div><div class="shot demo bio-demo"><div class="demo-bar"><b>Corcel da Mãe de Deus</b><span>20 meses</span></div><div class="measure"><b>1,34 m</b><small>Cernelha atual</small></div><div class="growth"><i style="height:48%"></i><i style="height:58%"></i><i style="height:69%"></i><i style="height:82%"></i><i style="height:92%"></i></div><div class="bio-foot"><span>Mínimo ABCCC <b>1,40 m</b></span><span>Projeção adulta <b>1,429 m</b></span><em>✓ Evolução dentro da projeção</em></div></div></div></div></section>
+<section class="nutri" id="nutricao"><div class="shell split"><div class="copy"><div class="eyebrow">Cada animal tem um projeto</div><h2 class="title">Alimentar é rotina. Nutrir também é planejar.</h2><p>Um animal em crescimento não tem o mesmo projeto de um animal em preparação para pista. Registre e acompanhe o plano nutricional de acordo com o momento e o objetivo de cada Crioulo.</p><div class="dream">Campo. Morfologia. Funcional. Doma. Cria.</div></div><div class="real-ui demo nutrition-demo"><div class="demo-bar"><b>Projeto Nutricional</b><span>Corcel da Mãe de Deus</span></div><div class="project-title"><small>OBJETIVO</small><b>Pista Morfologia</b><em>Ativo · 84 dias</em></div><div class="ration"><span>Ração</span><b>3 kg / dia</b></div><div class="ration"><span>Aveia</span><b>1 kg / dia</b></div><div class="ration"><span>Alfafa</span><b>2 porções / dia</b></div><div class="ration"><span>Suplemento</span><b>Conforme projeto</b></div><div class="evolution"><span>Início</span><i></i><strong>Evolução registrada</strong></div></div></div></section>
+<section id="cuidar"><div class="shell"><div class="head"><div class="eyebrow">Saúde · manejo · equipe</div><h2 class="title">Informação boa é aquela que chega a quem precisa.</h2><p>Proprietário, veterinário, cabanheiro e técnicos trabalham sobre o mesmo animal e a mesma história. Menos recado solto. Mais contexto para agir.</p></div><div class="team"><div class="role"><b>Proprietário</b><span>Visão da cabanha, decisões e prioridades.</span></div><div class="role"><b>Veterinário</b><span>Registros, pendências, retornos e vencimentos.</span></div><div class="role"><b>Cabanheiro</b><span>Rotina simples, manejo e informação no campo.</span></div><div class="role"><b>Técnicos</b><span>Contexto compartilhado para cada animal.</span></div></div></div></section>
+<section class="product-section" id="registro"><div class="shell registry-grid"><div class="copy"><div class="eyebrow">Registro Vivo</div><h2 class="title">A história não começa quando ele ganha.</h2><p>Nascimento, identificação, medidas, fotos, saúde, nutrição, treinamento, eventos, reprodução e resultados. Cada Crioulo constrói uma história. O Mimba ajuda a não perdê-la pelo caminho.</p><p class="dream">O registro deixa de ser arquivo. Vira memória. A memória vira conhecimento.</p></div><div class="stack"><div class="shot demo registry-demo"><div class="animal-orb">C</div><h3>Corcel da Mãe de Deus</h3><small>SBB B688473 · Registro Vivo</small><div class="timeline"><span><b>Nascimento</b><small>Registro inicial</small></span><span><b>Medidas</b><small>Evolução biométrica</small></span><span><b>Nutrição</b><small>Projeto Morfologia</small></span><span><b>Saúde</b><small>Vacinas e exames</small></span><span><b>Eventos</b><small>Preparação e resultados</small></span></div></div><div class="shot demo registry-side"><b>Uma história que cresce junto com o animal.</b><div class="mini-row"><span>Genealogia</span><strong>Conectada</strong></div><div class="mini-row"><span>Medidas</span><strong>7 registros</strong></div><div class="mini-row"><span>Saúde</span><strong>Em dia</strong></div><div class="mini-row"><span>Projetos</span><strong>1 ativo</strong></div></div></div></div></section>
+<section><div class="shell split"><div class="copy"><div class="eyebrow">Mimba Lab</div><h2 class="title">O conhecimento da sua cabanha encontra a história da raça.</h2><p>Leia os sangues presentes na sua manada e leve esse contexto para perguntas sobre genealogia, resultados e decisões de criação. O agente pode conectar esse olhar aos dados históricos disponíveis das provas Tier 1.</p></div><div class="shot demo lab-demo"><div class="demo-bar"><b>Mimba Lab</b><span>Análise de Sangues</span></div><div class="lab-chart"><div style="--v:86%"><b>Hornero</b><i></i><span>18</span></div><div style="--v:67%"><b>BT</b><i></i><span>14</span></div><div style="--v:52%"><b>La Invernada</b><i></i><span>11</span></div><div style="--v:38%"><b>Santa Elba</b><i></i><span>8</span></div></div><p class="lab-q">“Quais pais tiveram mais finalistas na Expointer 2026?”</p></div></div></section>
+<section class="apps"><div class="shell"><div class="head"><div class="eyebrow">Web · iPhone · Android</div><h2 class="title">No computador quando você planeja. No bolso quando está com os cavalos.</h2><p>O mesmo Mimba acompanha a rotina onde ela acontece.</p></div><div class="devices"><div class="device demo app-phone"><div class="phone-head">Mimba.<small>Manada</small></div><strong>24</strong><span>Crioulos ativos</span><div class="mini-row"><span>Corcel</span><b>Ativo</b></div><div class="mini-row"><span>Indiana</span><b>Gestante</b></div></div><div class="device demo app-phone"><div class="phone-head">Mimba.<small>Registro Vivo</small></div><div class="animal-orb">C</div><b>Corcel</b><div class="mini-row"><span>Saúde</span><b>✓</b></div><div class="mini-row"><span>Projeto</span><b>Morfologia</b></div></div><div class="device demo app-phone"><div class="phone-head">Mimba.<small>Reprodução</small></div><strong>6</strong><span>Gestações ativas</span><div class="mini-row"><span>Próximo parto</span><b>42 dias</b></div><div class="mini-row"><span>DG</span><b>2 pendentes</b></div></div></div></div></section>
+<section class="plans" id="planos"><div class="shell"><div class="head"><div class="eyebrow">Planos</div><h2 class="title">Escolha o Mimba do tamanho da sua cabanha.</h2><p>Os mesmos princípios de organização, planejamento e Registro Vivo, em planos que acompanham o tamanho da sua criação.</p></div><div class="plan-grid">
+<article class="plan-card" data-toggle><div class="plan-top"><div><div class="eyebrow">Plano</div><div class="plan-name">Potro</div><div class="plan-cap">Até 15 animais</div></div><span class="plan-badge">Começar</span></div><div class="price-choice" data-plano="Potro"><div class="price-label">Pacote básico · sem IA integrada</div><div class="price"><span class="currency">R$</span><strong>59,90</strong><span>/mês</span></div><div class="price-note">Gestão da cabanha sem o Agente Mimba integrado.</div></div><div class="price-choice ai" data-plano="Potro + Agente Mimba"><div class="price-label">Com Agente Mimba</div><div class="price"><span class="currency">R$</span><strong>79,90</strong><span>/mês</span></div><div class="price-note">Até 20 mensagens por dia no Agente Mimba.</div></div><ul class="plan-features"><li>Registro Vivo e gestão dos animais</li><li>Saúde, manejo, reprodução e eventos</li><li>Nutrição, medidas e confirmação</li><li>Integração de dados ABCCC disponível no produto</li></ul><a class="btn primary" href="/assinar?plano=Potro">Escolher Potro</a></article>
+<article class="plan-card featured" data-toggle><div class="plan-top"><div><div class="eyebrow">Plano</div><div class="plan-name">Arreio</div><div class="plan-cap">Até 50 animais</div></div><span class="plan-badge">Mais indicado</span></div><div class="price-choice" data-plano="Arreio"><div class="price-label">Pacote básico · sem IA integrada</div><div class="price"><span class="currency">R$</span><strong>119,90</strong><span>/mês</span></div><div class="price-note">Gestão completa para cabanhas em crescimento.</div></div><div class="price-choice ai" data-plano="Arreio + Agente Mimba"><div class="price-label">Com Agente Mimba</div><div class="price"><span class="currency">R$</span><strong>159,90</strong><span>/mês</span></div><div class="price-note">Até 30 mensagens por dia no Agente Mimba.</div></div><ul class="plan-features"><li>Registro Vivo e gestão dos animais</li><li>Saúde, manejo, reprodução e eventos</li><li>Nutrição, medidas e confirmação</li><li>Integração de dados ABCCC disponível no produto</li></ul><a class="btn primary" href="/assinar?plano=Arreio">Escolher Arreio</a></article>
+<article class="plan-card"><div class="plan-top"><div><div class="eyebrow">Plano</div><div class="plan-name">Manada</div><div class="plan-cap">Acima de 50 animais</div></div><span class="plan-badge">Cabanhas maiores</span></div><div class="price-choice ai" data-plano="Manada"><div class="price-label">Agente Mimba já incluído</div><div class="price"><span class="currency">R$</span><strong>397,90</strong><span>/mês</span></div><div class="price-note">Até 50 mensagens por dia no Agente Mimba.</div></div><ul class="plan-features"><li>Mais de 50 animais na mesma cabanha</li><li>Registro Vivo e gestão completa do plantel</li><li>Saúde, nutrição, reprodução, eventos e medidas</li><li>Mimba IA integrado ao contexto da cabanha</li><li>Acesso à inteligência conectada ao Mimba Lab</li></ul><a class="btn primary" href="/assinar?plano=Manada">Escolher Manada</a></article>
+</div><div class="plan-footnote"><b>Agente Mimba:</b> limites de mensagens reiniciados diariamente conforme o plano.</div></div></section><section class="final" id="lancamento"><div class="shell"><div class="eyebrow" style="color:#d8a07d">O futuro da sua criação</div><h2 class="title">O próximo grande cavalo da sua cabanha ainda pode estar por nascer.</h2><p>O Mimba existe para ajudar você a cuidar melhor dos que já estão aqui — e pensar melhor os que ainda virão.</p><a class="btn" href="/assinar">Quero criar com o Mimba</a></div></section></main>
 <script>
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}
+(function(){
+  document.querySelectorAll('.plan-card[data-toggle]').forEach(function(card){
+    var choices = card.querySelectorAll('.price-choice');
+    var btn = card.querySelector('.btn.primary');
+    function selecionar(choice){
+      choices.forEach(function(c){c.classList.remove('selected')});
+      choice.classList.add('selected');
+      btn.setAttribute('href', '/assinar?plano=' + encodeURIComponent(choice.dataset.plano));
+      btn.textContent = 'Escolher ' + choice.dataset.plano;
+    }
+    choices.forEach(function(choice){
+      choice.style.cursor = 'pointer';
+      choice.addEventListener('click', function(){ selecionar(choice); });
+    });
+    if(choices.length) selecionar(choices[0]);
   });
-},{threshold:0.08});
-document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
-</script>
-</body>
-</html>
+})();
+</script><footer class="footer"><div class="shell footerin"><span>© 2026 Mimba.</span><span>Inteligência para quem cria.</span><span>Lançamento oficial · 28.08.2026</span></div></footer></body></html>
