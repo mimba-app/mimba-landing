@@ -58,20 +58,34 @@ section{padding:108px 0}.head{max-width:900px;margin-bottom:50px}.head h2{font-s
 </style>
 <!-- Analytics de funil (2026-08-27) — TROCAR os IDs abaixo assim que as contas
      existirem (analytics.google.com / business.facebook.com). Enquanto o ID
-     é placeholder, gtag()/fbq() só ficam enfileirados localmente, sem erro. -->
+     é placeholder, gtag()/fbq() só ficam enfileirados localmente, sem erro.
+     LGPD (2026-08-27): nada de analytics_storage/ad_storage/Pixel roda antes
+     do aceite no banner de cookies — Consent Mode v2 (Google) começa DENIED
+     por padrão, e o Meta Pixel só é inicializado depois do clique em
+     "Aceitar". Ver mimbaAtivarConsentimento() e o banner no fim do <body>. -->
 <script>window.MIMBA_GA4_ID='G-XXXXXXXXXX';window.MIMBA_META_PIXEL_ID='0000000000000000';</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
 gtag('js',new Date());
 gtag('config',window.MIMBA_GA4_ID);
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init',window.MIMBA_META_PIXEL_ID);
-fbq('track','PageView');
+// fbq('init'...) e PageView só disparam depois do consentimento (ver mimbaAtivarConsentimento).
+var mimbaConsentimentoAtivo = false;
+function mimbaAtivarConsentimento(){
+  if(mimbaConsentimentoAtivo) return;
+  mimbaConsentimentoAtivo = true;
+  gtag('consent','update',{'analytics_storage':'granted','ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted'});
+  fbq('init',window.MIMBA_META_PIXEL_ID);
+  fbq('track','PageView');
+}
+if(localStorage.getItem('mimba_cookies')==='aceito'){ mimbaAtivarConsentimento(); }
 function mimbaTrack(nome,params){
+  if(!mimbaConsentimentoAtivo) return; // sem consentimento, nao envia evento nenhum
   try{gtag('event',nome,params||{});}catch(e){}
   try{fbq('trackCustom',nome,params||{});}catch(e){}
 }
@@ -206,4 +220,29 @@ function mimbaTrack(nome,params){
     });
   });
 })();
-</script><footer class="footer"><div class="shell footerin"><span>© 2026 Mimba.</span><span>Inteligência para quem cria.</span><span>Lançamento oficial · 28.08.2026</span></div></footer></body></html>
+</script><footer class="footer"><div class="shell footerin"><span>© 2026 Mimba.</span><span>Inteligência para quem cria.</span><a href="https://app.mimba.com.br/privacidade.html" style="text-decoration:underline">Política de Privacidade</a><span>Lançamento oficial · 28.08.2026</span></div></footer>
+
+<div id="cookie-banner" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:90;max-width:640px;margin:0 auto;background:#251f17;color:#f4efe5;border-radius:16px;padding:18px 20px;box-shadow:0 20px 60px rgba(0,0,0,.35)">
+  <p style="margin:0 0 12px;font-size:13px;line-height:1.5">Usamos cookies pra entender como você usa o site e melhorar sua experiência (analytics e anúncios). Você pode aceitar ou recusar — isso não afeta a navegação. <a href="https://app.mimba.com.br/privacidade.html" style="color:#E8C547;text-decoration:underline">Saiba mais</a>.</p>
+  <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap">
+    <button id="cookie-rejeitar" type="button" style="padding:9px 16px;border:1px solid rgba(244,239,229,.3);background:transparent;color:#f4efe5;border-radius:9px;font-weight:700;cursor:pointer;font-size:13px">Recusar</button>
+    <button id="cookie-aceitar" type="button" style="padding:9px 16px;border:none;background:#4d6b31;color:#fff;border-radius:9px;font-weight:700;cursor:pointer;font-size:13px">Aceitar</button>
+  </div>
+</div>
+<script>
+(function(){
+  var escolha = localStorage.getItem('mimba_cookies');
+  var banner = document.getElementById('cookie-banner');
+  if(!escolha){ banner.style.display = 'block'; }
+  document.getElementById('cookie-aceitar').addEventListener('click', function(){
+    localStorage.setItem('mimba_cookies','aceito');
+    mimbaAtivarConsentimento();
+    banner.style.display = 'none';
+  });
+  document.getElementById('cookie-rejeitar').addEventListener('click', function(){
+    localStorage.setItem('mimba_cookies','rejeitado');
+    banner.style.display = 'none';
+  });
+})();
+</script>
+</body></html>
