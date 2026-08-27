@@ -55,8 +55,29 @@ section{padding:108px 0}.head{max-width:900px;margin-bottom:50px}.head h2{font-s
 .price-choice.selected{border-color:var(--green);box-shadow:0 0 0 2px rgba(77,107,49,.2)}
 .price-choice.ai.selected{border-color:var(--green)}
 @media(max-width:760px){.client-access{margin-right:0}}
-</style></head><body><nav><div class="shell nav"><a href="#top" class="logo">Mimba<span class="dot">.</span></a><div class="links"><a href="#criar">Criar</a><a href="#cuidar">Cuidar</a><a href="#ia">Mimba IA</a><a href="#registro">Registro Vivo</a><a href="#quem-somos">Quem somos</a><a href="#planos">Planos</a><a class="btn client-access" href="https://app.mimba.com.br">Já sou cliente</a><a class="btn primary" href="#lancamento">Quero conhecer</a></div></div></nav><main id="top">
-<section class="hero"><div class="shell hero-grid"><div class="hero-copy"><div class="origin-pill"><strong>Guarani</strong><span><b>Mimba · mymba</b> · o animal sob cuidado, o ser que se cria</span><a href="#quem-somos">Por que Mimba? →</a></div><div class="eyebrow">Inteligência para quem cria</div><h1 class="title">Sua cabanha na palma da mão.</h1><p class="lead">Tudo sobre seus Crioulos. Para cuidar melhor de cada animal, planejar os próximos passos e pensar o futuro da sua criação.</p><div class="actions"><a class="btn primary" href="#criar">Quero conhecer o Mimba</a><a class="btn light" href="#manada">Ver como funciona</a></div><div class="launch">Web · lançamento oficial 28.08.2026</div></div><div class="hero-product"><div class="product-frame demo manada-demo"><div class="demo-bar"><b>Mimba.</b><span>Animais</span><i>24 ativos</i></div><div class="demo-stats"><b>24<small>Animais</small></b><b>13<small>Fêmeas</small></b><b>11<small>Machos</small></b><b>3<small>A confirmar</small></b></div><div class="horse-grid"><article><span class="horse-avatar">CM</span><b>Corcel da Mãe de Deus</b><small>B688473 · Pista Morfologia</small><em>Projeto ativo</em></article><article><span class="horse-avatar">IM</span><b>Indiana da Mãe de Deus</b><small>Matriz · Reprodução</small><em>Gestante</em></article><article><span class="horse-avatar">CH</span><b>Chanel da Mãe de Deus</b><small>Fêmea · Em preparação</small><em>A confirmar</em></article></div></div><div class="phone-crop demo phone-demo"><div class="phone-head">Mimba.<small>Registro Vivo</small></div><div class="animal-orb">C</div><b>Corcel da Mãe de Deus</b><small>SBB B688473</small><div class="mini-row"><span>Saúde</span><strong>Em dia</strong></div><div class="mini-row"><span>Projeto</span><strong>Morfologia</strong></div><div class="mini-row"><span>Próximo evento</span><strong>18 dias</strong></div></div><div class="float f1"><span class="eyebrow">Próximo evento</span><b>3 animais planejados</b>Sanidade conferida por data</div><div class="float f2"><span class="eyebrow">Reprodução</span><b>Gestações ativas</b>Acompanhe até o nascimento</div></div></div></section>
+</style>
+<!-- Analytics de funil (2026-08-27) — TROCAR os IDs abaixo assim que as contas
+     existirem (analytics.google.com / business.facebook.com). Enquanto o ID
+     é placeholder, gtag()/fbq() só ficam enfileirados localmente, sem erro. -->
+<script>window.MIMBA_GA4_ID='G-XXXXXXXXXX';window.MIMBA_META_PIXEL_ID='0000000000000000';</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config',window.MIMBA_GA4_ID);
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init',window.MIMBA_META_PIXEL_ID);
+fbq('track','PageView');
+function mimbaTrack(nome,params){
+  try{gtag('event',nome,params||{});}catch(e){}
+  try{fbq('trackCustom',nome,params||{});}catch(e){}
+}
+</script>
+</head><body><nav><div class="shell nav"><a href="#top" class="logo">Mimba<span class="dot">.</span></a><div class="links"><a href="#criar">Criar</a><a href="#cuidar">Cuidar</a><a href="#ia">Mimba IA</a><a href="#registro">Registro Vivo</a><a href="#quem-somos">Quem somos</a><a href="#planos">Planos</a><a class="btn client-access" href="https://app.mimba.com.br">Já sou cliente</a><a class="btn primary" href="#lancamento" data-lead-cta="nav_quero_conhecer">Quero conhecer</a></div></div></nav><main id="top">
+<section class="hero"><div class="shell hero-grid"><div class="hero-copy"><div class="origin-pill"><strong>Guarani</strong><span><b>Mimba · mymba</b> · o animal sob cuidado, o ser que se cria</span><a href="#quem-somos">Por que Mimba? →</a></div><div class="eyebrow">Inteligência para quem cria</div><h1 class="title">Sua cabanha na palma da mão.</h1><p class="lead">Tudo sobre seus Crioulos. Para cuidar melhor de cada animal, planejar os próximos passos e pensar o futuro da sua criação.</p><div class="actions"><a class="btn primary" href="#criar" data-lead-cta="hero_quero_conhecer">Quero conhecer o Mimba</a><a class="btn light" href="#manada">Ver como funciona</a></div><div class="launch">Web · lançamento oficial 28.08.2026</div></div><div class="hero-product"><div class="product-frame demo manada-demo"><div class="demo-bar"><b>Mimba.</b><span>Animais</span><i>24 ativos</i></div><div class="demo-stats"><b>24<small>Animais</small></b><b>13<small>Fêmeas</small></b><b>11<small>Machos</small></b><b>3<small>A confirmar</small></b></div><div class="horse-grid"><article><span class="horse-avatar">CM</span><b>Corcel da Mãe de Deus</b><small>B688473 · Pista Morfologia</small><em>Projeto ativo</em></article><article><span class="horse-avatar">IM</span><b>Indiana da Mãe de Deus</b><small>Matriz · Reprodução</small><em>Gestante</em></article><article><span class="horse-avatar">CH</span><b>Chanel da Mãe de Deus</b><small>Fêmea · Em preparação</small><em>A confirmar</em></article></div></div><div class="phone-crop demo phone-demo"><div class="phone-head">Mimba.<small>Registro Vivo</small></div><div class="animal-orb">C</div><b>Corcel da Mãe de Deus</b><small>SBB B688473</small><div class="mini-row"><span>Saúde</span><strong>Em dia</strong></div><div class="mini-row"><span>Projeto</span><strong>Morfologia</strong></div><div class="mini-row"><span>Próximo evento</span><strong>18 dias</strong></div></div><div class="float f1"><span class="eyebrow">Próximo evento</span><b>3 animais planejados</b>Sanidade conferida por data</div><div class="float f2"><span class="eyebrow">Reprodução</span><b>Gestações ativas</b>Acompanhe até o nascimento</div></div></div></section>
 <section><div class="shell"><div class="head"><div class="eyebrow">Tudo em um só lugar</div><h2 class="title">Criar é cuidar de muita coisa ao mesmo tempo.</h2><p>Animais, documentos, reprodução, nutrição, eventos, saúde, manejo e equipe. O Mimba transforma informação espalhada em uma visão única de cada animal e da cabanha inteira.</p></div><div class="proof"><div class="card"><div class="eyebrow">Manada</div><h3>Cada animal. Toda a história.</h3><p>Ficha viva, genealogia, situação atual, projetos e próximos passos.</p><div class="big-num">24</div></div><div class="card"><div class="eyebrow">Hoje</div><h3>O que pede atenção.</h3><p>Vencimentos, manejos e decisões em um só lugar.</p></div><div class="card"><div class="eyebrow">Agenda</div><h3>O que vem depois.</h3><p>Eventos, reprodução e procedimentos planejados.</p></div></div></div></section>
 <section class="about" id="quem-somos"><div class="shell"><div class="about-grid"><div class="about-copy"><div class="eyebrow">Quem somos</div><h2 class="title">Nosso nome nasce da essência de criar e cuidar.</h2><p><b>Mymba</b>, do Guarani, carrega uma ideia simples e profunda: o animal que está sob nosso cuidado, aquele que criamos.</p><p>Foi daí que nasceu o nome <b>Mimba</b>. Porque criar um Cavalo Crioulo nunca foi apenas registrar um animal. É escolher um cruzamento, acompanhar uma gestação, cuidar de um potro, preparar para uma prova, observar sua evolução e imaginar até onde ele pode chegar.</p><p>É conhecimento que passa entre gerações. É campo, família, tradição e paixão pelo cavalo. Mas criar também mudou: a criação se profissionalizou, as decisões envolvem mais informação e a tecnologia abriu novas possibilidades para cuidar e planejar.</p><div class="about-meaning"><strong>Mimba é o animal sob cuidado. O ser que se cria.</strong><span>Um nome que conecta aquilo que sempre esteve na essência da criação com as novas formas de fazer a cabanha evoluir.</span></div></div><div class="brand-equation"><div class="brand-pillar"><div class="symbol">T</div><h3>Tradição</h3><p>O conhecimento, a cultura, a história e a essência de quem cria Cavalos Crioulos.</p></div><div class="brand-plus">+</div><div class="brand-pillar"><div class="symbol">P</div><h3>Profissionalização</h3><p>Mais gestão, controle e informação para uma criação que precisa evoluir sem perder sua identidade.</p></div><div class="brand-plus">+</div><div class="brand-pillar"><div class="symbol">IA</div><h3>Tecnologia e inteligência</h3><p>Dados e IA ampliando a capacidade de enxergar, planejar, comparar e decidir.</p></div><div class="brand-result">
   <div class="brand-lockup" aria-label="Mimba. Inteligência para quem cria.">
@@ -77,7 +98,91 @@ section{padding:108px 0}.head{max-width:900px;margin-bottom:50px}.head h2{font-s
 <article class="plan-card" data-toggle><div class="plan-top"><div><div class="eyebrow">Plano</div><div class="plan-name">Potro</div><div class="plan-cap">Até 15 animais</div></div><span class="plan-badge">Começar</span></div><div class="price-choice" data-plano="Potro"><div class="price-label">Pacote básico · sem IA integrada</div><div class="price"><span class="currency">R$</span><strong>59,90</strong><span>/mês</span></div><div class="price-note">Gestão da cabanha sem o Agente Mimba integrado.</div></div><div class="price-choice ai" data-plano="Potro + Agente Mimba"><div class="price-label">Com Agente Mimba</div><div class="price"><span class="currency">R$</span><strong>79,90</strong><span>/mês</span></div><div class="price-note">Até 20 mensagens por dia no Agente Mimba.</div></div><ul class="plan-features"><li>Registro Vivo e gestão dos animais</li><li>Saúde, manejo, reprodução e eventos</li><li>Nutrição, medidas e confirmação</li><li>Integração de dados ABCCC disponível no produto</li></ul><a class="btn primary" href="/assinar?plano=Potro">Escolher Potro</a></article>
 <article class="plan-card featured" data-toggle><div class="plan-top"><div><div class="eyebrow">Plano</div><div class="plan-name">Arreio</div><div class="plan-cap">Até 50 animais</div></div><span class="plan-badge">Mais indicado</span></div><div class="price-choice" data-plano="Arreio"><div class="price-label">Pacote básico · sem IA integrada</div><div class="price"><span class="currency">R$</span><strong>119,90</strong><span>/mês</span></div><div class="price-note">Gestão completa para cabanhas em crescimento.</div></div><div class="price-choice ai" data-plano="Arreio + Agente Mimba"><div class="price-label">Com Agente Mimba</div><div class="price"><span class="currency">R$</span><strong>159,90</strong><span>/mês</span></div><div class="price-note">Até 30 mensagens por dia no Agente Mimba.</div></div><ul class="plan-features"><li>Registro Vivo e gestão dos animais</li><li>Saúde, manejo, reprodução e eventos</li><li>Nutrição, medidas e confirmação</li><li>Integração de dados ABCCC disponível no produto</li></ul><a class="btn primary" href="/assinar?plano=Arreio">Escolher Arreio</a></article>
 <article class="plan-card"><div class="plan-top"><div><div class="eyebrow">Plano</div><div class="plan-name">Manada</div><div class="plan-cap">Acima de 50 animais</div></div><span class="plan-badge">Cabanhas maiores</span></div><div class="price-choice ai" data-plano="Manada"><div class="price-label">Agente Mimba já incluído</div><div class="price"><span class="currency">R$</span><strong>397,90</strong><span>/mês</span></div><div class="price-note">Até 50 mensagens por dia no Agente Mimba.</div></div><ul class="plan-features"><li>Mais de 50 animais na mesma cabanha</li><li>Registro Vivo e gestão completa do plantel</li><li>Saúde, nutrição, reprodução, eventos e medidas</li><li>Mimba IA integrado ao contexto da cabanha</li><li>Acesso à inteligência conectada ao Mimba Lab</li></ul><a class="btn primary" href="/assinar?plano=Manada">Escolher Manada</a></article>
-</div><div class="plan-footnote"><b>Agente Mimba:</b> limites de mensagens reiniciados diariamente conforme o plano.</div></div></section><section class="final" id="lancamento"><div class="shell"><div class="eyebrow" style="color:#d8a07d">O futuro da sua criação</div><h2 class="title">O próximo grande cavalo da sua cabanha ainda pode estar por nascer.</h2><p>O Mimba existe para ajudar você a cuidar melhor dos que já estão aqui — e pensar melhor os que ainda virão.</p><a class="btn" href="/assinar">Quero criar com o Mimba</a></div></section></main>
+</div><div class="plan-footnote"><b>Agente Mimba:</b> limites de mensagens reiniciados diariamente conforme o plano.</div></div></section><section class="final" id="lancamento"><div class="shell"><div class="eyebrow" style="color:#d8a07d">O futuro da sua criação</div><h2 class="title">O próximo grande cavalo da sua cabanha ainda pode estar por nascer.</h2><p>O Mimba existe para ajudar você a cuidar melhor dos que já estão aqui — e pensar melhor os que ainda virão.</p><a class="btn" href="/assinar" data-lead-cta="final_quero_criar">Quero criar com o Mimba</a></div></section></main>
+
+<div id="lead-modal" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(37,31,23,.55);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fffaf2;border-radius:20px;padding:32px;max-width:420px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.3)">
+    <div style="font:800 22px Manrope,sans-serif;letter-spacing:-.03em;margin-bottom:6px">Quer saber mais sobre o Mimba?</div>
+    <p style="font-size:14px;color:#655d54;line-height:1.5;margin:0 0 18px">Deixa seu contato que a gente te avisa com novidades — sem compromisso, sem spam.</p>
+    <div style="display:grid;gap:10px">
+      <input id="lead-nome" type="text" placeholder="Seu nome" style="padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:15px 'DM Sans',sans-serif">
+      <input id="lead-contato" type="text" placeholder="Email ou WhatsApp" style="padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:15px 'DM Sans',sans-serif">
+    </div>
+    <div id="lead-erro" style="display:none;color:#b9574d;font-size:13px;margin-top:10px"></div>
+    <div style="display:flex;gap:10px;margin-top:18px">
+      <button id="lead-pular" type="button" style="flex:1;padding:12px;border:1px solid var(--line);background:transparent;border-radius:10px;font-weight:700;cursor:pointer;color:var(--muted)">Agora não</button>
+      <button id="lead-enviar" type="button" style="flex:1;padding:12px;border:none;background:var(--green);color:#fff;border-radius:10px;font-weight:700;cursor:pointer">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var modal = document.getElementById('lead-modal');
+  var destinoPendente = null;
+  var jaMostrou = false;
+
+  function irPraDestino(){
+    var h = destinoPendente;
+    modal.style.display = 'none';
+    destinoPendente = null;
+    if(h) location.hash = h.replace('#','');
+  }
+
+  document.querySelectorAll('[data-lead-cta]').forEach(function(el){
+    el.addEventListener('click', function(ev){
+      var origem = el.dataset.leadCta;
+      mimbaTrack('cta_click', { origem: origem });
+      if(jaMostrou || sessionStorage.getItem('mimba_lead_ok')){ return; } // já preencheu/dispensou nesta sessão — segue o link normal
+      ev.preventDefault();
+      destinoPendente = el.getAttribute('href');
+      modal.dataset.origem = origem;
+      modal.style.display = 'flex';
+      jaMostrou = true;
+      mimbaTrack('lead_modal_view', { origem: origem });
+    });
+  });
+
+  document.getElementById('lead-pular').addEventListener('click', function(){
+    sessionStorage.setItem('mimba_lead_ok', '1');
+    irPraDestino();
+  });
+
+  document.getElementById('lead-enviar').addEventListener('click', function(){
+    var nome = document.getElementById('lead-nome').value.trim();
+    var contato = document.getElementById('lead-contato').value.trim();
+    var erro = document.getElementById('lead-erro');
+    erro.style.display = 'none';
+    if(!nome || !contato){ erro.textContent = 'Preenche nome e um jeito de te contatar.'; erro.style.display = 'block'; return; }
+    var btn = document.getElementById('lead-enviar');
+    btn.disabled = true; btn.textContent = 'Enviando…';
+    var params = new URLSearchParams(location.search);
+    fetch('https://fmjfvfufkqswweyasjyp.supabase.co/functions/v1/capturar-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nome: nome, contato: contato, origem: modal.dataset.origem,
+        pagina_url: location.href,
+        utm_source: params.get('utm_source'), utm_medium: params.get('utm_medium'), utm_campaign: params.get('utm_campaign'),
+      }),
+    }).then(function(r){ return r.json().catch(function(){ return {}; }); }).then(function(j){
+      btn.disabled = false; btn.textContent = 'Enviar';
+      if(j && j.sucesso){
+        sessionStorage.setItem('mimba_lead_ok', '1');
+        mimbaTrack('lead_submit', { origem: modal.dataset.origem });
+        irPraDestino();
+      } else {
+        erro.textContent = (j && j.erro) || 'Não deu pra registrar agora. Tente de novo.';
+        erro.style.display = 'block';
+      }
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = 'Enviar';
+      erro.textContent = 'Falha de conexão. Tente de novo.';
+      erro.style.display = 'block';
+    });
+  });
+})();
+</script>
 <script>
 (function(){
   document.querySelectorAll('.plan-card[data-toggle]').forEach(function(card){
@@ -94,6 +199,11 @@ section{padding:108px 0}.head{max-width:900px;margin-bottom:50px}.head h2{font-s
       choice.addEventListener('click', function(){ selecionar(choice); });
     });
     if(choices.length) selecionar(choices[0]);
+  });
+  document.querySelectorAll('.plan-card .btn.primary').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      mimbaTrack('plano_click', { plano: btn.textContent.replace(/^Escolher /,'') });
+    });
   });
 })();
 </script><footer class="footer"><div class="shell footerin"><span>© 2026 Mimba.</span><span>Inteligência para quem cria.</span><span>Lançamento oficial · 28.08.2026</span></div></footer></body></html>
