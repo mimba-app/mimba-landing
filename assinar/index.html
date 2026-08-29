@@ -57,7 +57,7 @@
     <div class="field"><label>Nome da cabanha</label><input type="text" id="nome_cabanha" placeholder="Ex: Cabanha Santa Fé"></div>
     <div class="field"><label>Email de acesso</label><input type="email" id="email_admin" placeholder="seu@email.com"></div>
     <div class="field"><label>CPF / CNPJ</label><input type="text" id="cpf_cnpj" placeholder="Só números"></div>
-    <div class="field" style="margin-bottom:0"><p style="font-size:12.5px;color:var(--muted);line-height:1.5">Nome do responsável, telefone e código ABCCC você completa dentro do app, logo depois de entrar.</p></div>
+    <div class="field" style="margin-bottom:0"><p style="font-size:12.5px;color:var(--muted);line-height:1.5">Nome do responsável e código ABCCC você completa dentro do app, logo depois de entrar.</p></div>
 
     <div class="cartao-box" id="cartao-box">
       <h3>Dados do cartão</h3>
@@ -68,11 +68,12 @@
         <div><label>Ano</label><input type="text" id="cc_ano" inputmode="numeric" autocomplete="cc-exp-year" maxlength="4" placeholder="AAAA"></div>
         <div><label>CVV</label><input type="text" id="cc_cvv" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="000"></div>
       </div>
-      <h3 style="margin-top:.4rem">Endereço do titular</h3>
+      <h3 style="margin-top:.4rem">Endereço e contato do titular</h3>
       <div class="field row2">
         <div><label>CEP</label><input type="text" id="tt_cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="00000-000"></div>
         <div><label>Número</label><input type="text" id="tt_numero" autocomplete="address-line2" placeholder="Nº"></div>
       </div>
+      <div class="field"><label>Telefone <span class="opt">(exigido pela operadora do cartão)</span></label><input type="text" id="tt_telefone" autocomplete="tel" placeholder="(00) 00000-0000"></div>
     </div>
 
     <button class="btn" id="btn" onclick="contratar()">Ir para o pagamento →</button>
@@ -144,10 +145,11 @@ async function contratar(){
     const cc_cvv=get('cc_cvv');
     const tt_cep=get('tt_cep').replace(/\D+/g,'');
     const tt_numero=get('tt_numero');
-    if(!cc_numero||!cc_nome||!cc_mes||cc_ano.length!==4||!cc_cvv||!tt_cep||!tt_numero){
-      err.textContent='Preencha todos os dados do cartão e o endereço do titular.';err.style.display='block';return;
+    const tt_telefone=get('tt_telefone').replace(/\D+/g,'');
+    if(!cc_numero||!cc_nome||!cc_mes||cc_ano.length!==4||!cc_cvv||!tt_cep||!tt_numero||!tt_telefone){
+      err.textContent='Preencha todos os dados do cartão, endereço e telefone do titular.';err.style.display='block';return;
     }
-    payload={...base,cartao:{numero:cc_numero,nome_titular:cc_nome,validade_mes:cc_mes,validade_ano:cc_ano,ccv:cc_cvv},titular:{cep:tt_cep,numero_endereco:tt_numero}};
+    payload={...base,cartao:{numero:cc_numero,nome_titular:cc_nome,validade_mes:cc_mes,validade_ano:cc_ano,ccv:cc_cvv},titular:{cep:tt_cep,numero_endereco:tt_numero,telefone:tt_telefone}};
     endpoint='/functions/v1/criar-checkout-trial';
   }
 
