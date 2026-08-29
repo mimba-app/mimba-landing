@@ -55,11 +55,9 @@
     <div class="trial-nota" id="trial-nota">Não cobramos nada agora. Passados os 30 dias, a cobrança do plano escolhido começa automaticamente no cartão informado. Cancele quando quiser antes disso.</div>
     <div class="field"><label>Plano</label><div class="planos" id="planos">Carregando planos…</div></div>
     <div class="field"><label>Nome da cabanha</label><input type="text" id="nome_cabanha" placeholder="Ex: Cabanha Santa Fé"></div>
-    <div class="field"><label>Seu nome (responsável)</label><input type="text" id="responsavel" placeholder="Nome do dono/admin"></div>
     <div class="field"><label>Email de acesso</label><input type="email" id="email_admin" placeholder="seu@email.com"></div>
-    <div class="field"><label>Telefone</label><input type="text" id="telefone" placeholder="(00) 00000-0000"></div>
     <div class="field"><label>CPF / CNPJ</label><input type="text" id="cpf_cnpj" placeholder="Só números"></div>
-    <div class="field"><label>Código ABCCC <span class="opt">(opcional)</span></label><input type="text" id="abccc_codigo" placeholder="Registro da cabanha na ABCCC"></div>
+    <div class="field" style="margin-bottom:0"><p style="font-size:12.5px;color:var(--muted);line-height:1.5">Nome do responsável, telefone e código ABCCC você completa dentro do app, logo depois de entrar.</p></div>
 
     <div class="cartao-box" id="cartao-box">
       <h3>Dados do cartão</h3>
@@ -134,7 +132,7 @@ async function contratar(){
   const err=document.getElementById('erro');err.style.display='none';
   const get=id=>document.getElementById(id).value.trim();
   const btnLabel=modo==='trial'?'Iniciar teste grátis →':'Ir para o pagamento →';
-  const base={plano_id:planoSel,nome_cabanha:get('nome_cabanha'),responsavel:get('responsavel'),email_admin:get('email_admin'),telefone:get('telefone'),cpf_cnpj:get('cpf_cnpj'),abccc_codigo:get('abccc_codigo')};
+  const base={plano_id:planoSel,nome_cabanha:get('nome_cabanha'),email_admin:get('email_admin'),cpf_cnpj:get('cpf_cnpj')};
   if(!base.plano_id||!base.nome_cabanha||!base.email_admin||!base.cpf_cnpj){err.textContent='Preencha plano, nome da cabanha, email e CPF/CNPJ.';err.style.display='block';return;}
 
   let payload=base, endpoint='/functions/v1/criar-checkout';
