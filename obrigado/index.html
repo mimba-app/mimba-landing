@@ -4,32 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Obrigado — Mimba</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--terra:#1C1008;--ouro-x:#E8C547;--campo:#2D5A3D;--campo-l:#3D7A54;--creme:#F5EFE0}
+  :root{--ink:#251f17;--green:#4d6b31;--green2:#30451d;--terra:#b45f35;--cream:#f4efe5;--paper:#fffaf2;--muted:#746b60;--line:rgba(37,31,23,.12);--shadow:0 24px 70px rgba(51,42,27,.13)}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'DM Sans',sans-serif;background:var(--terra);color:var(--creme);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.2rem}
-  .check{width:72px;height:72px;border-radius:50%;background:var(--campo);display:flex;align-items:center;justify-content:center;font-size:38px;margin-bottom:1.5rem;color:#fff}
-  h1{font-family:'Playfair Display',serif;font-weight:900;color:var(--ouro-x);font-size:2rem;margin-bottom:.6rem}
-  p{color:rgba(245,239,224,.7);font-size:1rem;line-height:1.7;max-width:460px;margin-bottom:.5rem}
-  .box{background:rgba(255,255,255,.05);border:1px solid rgba(245,239,224,.12);border-radius:12px;padding:1.2rem 1.4rem;max-width:460px;margin:1.4rem 0;font-size:.9rem;color:rgba(245,239,224,.75)}
-  a.btn{display:inline-block;margin-top:.6rem;background:var(--campo);color:#fff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:600}
-  a.btn:hover{background:var(--campo-l)}
-  a.link{color:rgba(245,239,224,.5);font-size:13px;text-decoration:none;margin-top:1.5rem}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.2rem}
+  .brand{font:800 1.6rem/1 Manrope,sans-serif;letter-spacing:-.05em;color:var(--ink);margin-bottom:1.6rem}
+  .brand .dot{color:#b8860b}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:2.2rem 2rem;width:100%;max-width:480px;box-shadow:var(--shadow)}
+  .check{width:60px;height:60px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 1.3rem;color:#fff}
+  h1{font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.03em;color:var(--ink);font-size:1.6rem;margin-bottom:.6rem}
+  p{color:var(--muted);font-size:.95rem;line-height:1.6;margin-bottom:.5rem}
+  .steps{text-align:left;margin:1.4rem 0;display:grid;gap:.7rem}
+  .step{display:flex;gap:.7rem;align-items:flex-start;font-size:.88rem;color:var(--ink);line-height:1.5}
+  .step b{flex:0 0 22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace}
+  .box{background:rgba(77,107,49,.08);border:1px solid var(--line);border-radius:10px;padding:.9rem 1.1rem;font-size:.82rem;color:var(--muted);line-height:1.55;margin-top:.4rem}
+  a.btn{display:inline-block;margin-top:1.3rem;background:var(--green);color:#fff;text-decoration:none;padding:13px 24px;border-radius:9px;font-weight:700;font-size:.95rem}
+  a.btn:hover{background:var(--green2)}
+  a.link{display:block;color:var(--muted);font-size:12.5px;text-decoration:none;margin-top:1.4rem}
 </style>
 </head>
 <body>
-  <div class="check">✓</div>
-  <h1 id="titulo">Pagamento recebido!</h1>
-  <p id="texto">Obrigado por contratar o <strong style="color:var(--creme)">Mimba</strong>. Estamos preparando o ambiente da sua cabanha.</p>
-  <div class="box" id="box">Em instantes você recebe os <strong style="color:var(--creme)">dados de acesso</strong> no email cadastrado. Depois é só entrar em <strong style="color:var(--creme)">app.mimba.com.br</strong> com seu email e senha.</div>
-  <a class="btn" href="https://app.mimba.com.br">Ir para o login →</a>
+  <div class="brand">Mimba<span class="dot">.</span></div>
+  <div class="card">
+    <div class="check">✓</div>
+    <h1 id="titulo">Pagamento recebido!</h1>
+    <p id="texto">Obrigado por contratar o <strong>Mimba</strong>. Faltam só alguns passos pra sua cabanha estar pronta.</p>
+    <div class="steps" id="steps">
+      <div class="step"><b>1</b><span>Confira seu email — mandamos o link pra você definir sua senha de acesso.</span></div>
+      <div class="step"><b>2</b><span>Entre em <strong>app.mimba.com.br</strong> com seu email e a senha que você escolheu.</span></div>
+      <div class="step"><b>3</b><span>A gente te guia por dentro do app pra configurar sua cabanha e importar seus animais.</span></div>
+    </div>
+    <div class="box" id="box">Não recebeu o email em alguns minutos? Confira o spam ou fale com o suporte.</div>
+    <a class="btn" href="https://app.mimba.com.br">Ir para o login →</a>
+  </div>
   <a class="link" href="https://mimba.com.br">← Voltar ao site</a>
 <script>
 if(new URLSearchParams(location.search).get('trial')==='1'){
   document.getElementById('titulo').textContent='Sua cabanha está pronta!';
-  document.getElementById('texto').innerHTML='Seu teste grátis de <strong style="color:var(--creme)">30 dias</strong> do <strong style="color:var(--creme)">Mimba</strong> começou agora. Nenhuma cobrança foi feita.';
-  document.getElementById('box').innerHTML='Em instantes você recebe os <strong style="color:var(--creme)">dados de acesso</strong> no email cadastrado. Após os 30 dias, a cobrança do plano escolhido inicia automaticamente no cartão informado — cancele quando quiser antes disso.';
+  document.getElementById('texto').innerHTML='Seu teste grátis de <strong>30 dias</strong> do <strong>Mimba</strong> começou agora. Nenhuma cobrança foi feita.';
+  document.getElementById('box').innerHTML='Após os 30 dias, a cobrança do plano escolhido inicia automaticamente no cartão informado — cancele quando quiser antes disso.';
 }
 </script>
 </body>

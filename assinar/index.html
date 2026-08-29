@@ -4,44 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contratar — Mimba</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--terra:#1C1008;--ouro:#B8860B;--ouro-x:#E8C547;--campo:#2D5A3D;--campo-l:#3D7A54;--creme:#F5EFE0;--border:#DDD5C8;--text:#1C1008;--text2:#5C4F42}
+  :root{--ink:#251f17;--green:#4d6b31;--green2:#30451d;--terra:#b45f35;--cream:#f4efe5;--paper:#fffaf2;--muted:#746b60;--line:rgba(37,31,23,.12);--red:#b9574d;--shadow:0 24px 70px rgba(51,42,27,.13)}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'DM Sans',sans-serif;background:var(--terra);color:var(--creme);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem}
-  .brand{font-family:'Playfair Display',serif;font-weight:900;color:var(--ouro-x);font-size:2rem}
-  .sub{color:rgba(245,239,224,.6);font-size:.9rem;margin-bottom:2rem}
-  .card{background:#fff;color:var(--text);border-radius:16px;padding:2rem;width:100%;max-width:520px}
-  h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.4rem;margin-bottom:1.2rem;color:var(--terra)}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem}
+  .brand{font:800 2rem/1 Manrope,sans-serif;letter-spacing:-.05em;color:var(--ink)}
+  .brand .dot{color:#b8860b}
+  .sub{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:2rem}
+  .card{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:2rem;width:100%;max-width:520px;box-shadow:var(--shadow)}
+  h2{font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.03em;font-size:1.5rem;margin-bottom:1.2rem;color:var(--ink)}
   .planos{display:grid;gap:.6rem;margin-bottom:1.4rem}
-  .plano{border:1.5px solid var(--border);border-radius:10px;padding:.9rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .15s}
-  .plano:hover{border-color:var(--campo-l)}
-  .plano.sel{border-color:var(--campo);background:#EBF5EF}
-  .plano-nome{font-weight:600}
-  .plano-desc{font-size:12px;color:var(--text2)}
-  .plano-preco{font-family:'Playfair Display',serif;font-weight:700;color:var(--campo)}
+  .plano{border:1.5px solid var(--line);border-radius:10px;padding:.9rem 1rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:border-color .15s}
+  .plano:hover{border-color:var(--green)}
+  .plano.sel{border-color:var(--green);background:rgba(77,107,49,.08)}
+  .plano-nome{font-weight:700}
+  .plano-desc{font-size:12px;color:var(--muted)}
+  .plano-preco{font-family:Manrope,sans-serif;font-weight:800;color:var(--green)}
   .field{margin-bottom:.9rem}
-  label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.03em}
-  input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;color:var(--text)}
-  input:focus{outline:none;border-color:var(--campo-l)}
-  .opt{color:var(--text2);font-weight:400;text-transform:none;letter-spacing:0}
-  .btn{width:100%;padding:13px;background:var(--campo);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;margin-top:.6rem;font-family:inherit}
+  label{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.06em;font-family:'DM Mono',monospace}
+  input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;color:var(--ink);background:#fff}
+  input:focus{outline:none;border-color:var(--green)}
+  .opt{color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;font-family:'DM Sans',sans-serif}
+  .btn{width:100%;min-height:48px;padding:13px;background:var(--green);color:#fff;border:none;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;margin-top:.6rem;font-family:inherit}
+  .btn:hover{background:var(--green2)}
   .btn:disabled{opacity:.6;cursor:default}
-  .erro{background:#FCEBEB;color:#A32D2D;border-radius:8px;padding:10px 12px;font-size:13px;margin-top:1rem;display:none}
-  .foot{color:rgba(245,239,224,.4);font-size:12px;margin-top:1.5rem;text-align:center;max-width:420px}
-  .modos{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.4rem;background:var(--creme);border-radius:10px;padding:4px}
-  .modo{border:none;background:transparent;color:var(--text2);font-family:inherit;font-size:13px;font-weight:600;padding:.7rem .5rem;border-radius:8px;cursor:pointer;text-align:center}
-  .modo.sel{background:#fff;color:var(--campo);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-  .trial-nota{background:#EBF5EF;color:var(--campo);border-radius:8px;padding:10px 12px;font-size:12.5px;margin-bottom:1rem;line-height:1.5;display:none}
-  .cartao-box{display:none;border-top:1px dashed var(--border);margin-top:.4rem;padding-top:1rem}
-  .cartao-box h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--text2);margin-bottom:.8rem}
+  .erro{background:rgba(185,87,77,.1);color:var(--red);border-radius:8px;padding:10px 12px;font-size:13px;margin-top:1rem;display:none}
+  .foot{color:var(--muted);font-size:12px;margin-top:1.5rem;text-align:center;max-width:420px}
+  .modos{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.4rem;background:var(--cream);border-radius:10px;padding:4px}
+  .modo{border:none;background:transparent;color:var(--muted);font-family:inherit;font-size:13px;font-weight:700;padding:.7rem .5rem;border-radius:8px;cursor:pointer;text-align:center}
+  .modo.sel{background:#fff;color:var(--green);box-shadow:0 1px 3px rgba(37,31,23,.12)}
+  .trial-nota{background:rgba(77,107,49,.08);color:var(--green2);border-radius:8px;padding:10px 12px;font-size:12.5px;margin-bottom:1rem;line-height:1.5;display:none}
+  .cartao-box{display:none;border-top:1px dashed var(--line);margin-top:.4rem;padding-top:1rem}
+  .cartao-box h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.8rem;font-family:'DM Mono',monospace}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
   .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem}
 </style>
 </head>
 <body>
-  <a href="https://mimba.com.br" style="align-self:flex-start;color:rgba(245,239,224,.55);text-decoration:none;font-size:13px;margin-bottom:1.2rem">← Voltar ao site</a>
-  <div class="brand">Mimba</div>
+  <a href="https://mimba.com.br" style="align-self:flex-start;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:1.2rem;font-family:'DM Sans',sans-serif">← Voltar ao site</a>
+  <div class="brand">Mimba<span class="dot">.</span></div>
   <div class="sub">Gestão Crioulos · contrate sua cabanha</div>
   <div class="card">
     <h2>Contratar o Mimba</h2>
